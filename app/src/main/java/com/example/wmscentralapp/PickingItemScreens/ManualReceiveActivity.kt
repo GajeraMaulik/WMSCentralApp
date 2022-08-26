@@ -201,6 +201,18 @@ class ManualReceiveActivity : AppCompatActivity() {
         testoder.visibility = View.VISIBLE
         cancelbtn.visibility = View.GONE
 
+        val displayMetrics = resources.displayMetrics
+        val width = displayMetrics.widthPixels
+        val height = displayMetrics.heightPixels
+        val params: ViewGroup.LayoutParams = okbtn.getLayoutParams()
+        params.height = height / 15 // 10%
+
+        params.width = width * 50 / 100 // 20%
+
+        okbtn.setLayoutParams(params)
+
+
+
 //        pickingItems.visibility = View.VISIBLE
 
         okbtn.text = "Ok"

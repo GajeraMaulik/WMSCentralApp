@@ -92,7 +92,7 @@
                 android:visibility="gone"
                 android:background="@drawable/backgroud_edittext"
                 android:hint=""
-                android:inputType="numberDecimal"
+                android:inputType="text"
                 android:padding="11dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

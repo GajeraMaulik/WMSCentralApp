@@ -17,14 +17,14 @@ import androidx.core.content.ContextCompat
 import com.example.wmscentralapp.LoginScreens.MainActivity
 import com.example.wmscentralapp.R
 import com.example.wmscentralapp.SharePref
-import kotlinx.android.synthetic.main.activity_pack_order.*
+import kotlinx.android.synthetic.main.activity_pack_order_scan.*
 
 class PackOrderScanActivity : AppCompatActivity() {
     var etPickId: EditText? = null
     lateinit var dialog: Dialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pack_order)
+        setContentView(R.layout.activity_pack_order_scan)
 
 
         val actionBar = supportActionBar

@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import com.example.wmscentralapp.InventoryTransactionScreens.InventoryTransactionActivity
 import com.example.wmscentralapp.PackOderScreens.PickingItem.PickedItemActivity
 import com.example.wmscentralapp.PackOderScreens.PickingItem.ScanViewActivity
 import com.example.wmscentralapp.PoRecevingScreens.PoRecevingListActivity
@@ -40,6 +41,8 @@ class InventoryFragment : Fragment() {
         }
 
         inventTransaction.setOnClickListener {
+            val intent = Intent(context, InventoryTransactionActivity::class.java)
+            startActivity(intent)
             Toast.makeText(context,"Invent Transaction",Toast.LENGTH_LONG).show()
         }
 
