@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#863B7B</color>
+    <color name="colorOnPrimary">#0D863B7B</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="shadow">#40000000</color>
+    <color name="bgTabview">#D9D9D9</color>
+<color name="pickItem">#9B9BA3</color>
+    <color name="scan">#0360B0</color>
+    <color name="edit">#38CD9EC6</color>
+    <color name="scanbg">#A5C3E5</color>
+    <color name="scanbg1">#9CC184</color>
+    <color name="scanbg2">#00C4B4</color>
+    <color name="edittext">#FFEBFC</color>
+    <color name="pia">#409B9BA3</color>
+    <color name="reviewdetails">#38863B7B</color>
+<color name="bsdtext">#3478F6</color>
+    <color name="scanbin">#F0BA45</color>
+    <color name="issue">#E7E3E3</color>
+    <color name="receive">#A5C3E5</color>
+</resources>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PackOderScreens.PackPickingActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60sdp"
+            android:background="@drawable/custom_toolbar"
+            tools:ignore="MissingConstraints">
+
+
+            <ImageView
+                android:id="@+id/back_Packpicking_Btn"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                app:srcCompat="@drawable/short_left"
+                tools:ignore="ContentDescription,RtlHardcoded,RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/title_Packoder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Scan View"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/packItemLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="Items"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
+            android:id="@+id/lPickId"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+
+            android:layout_below="@+id/toolBar"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pick ID :"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:textSize="@dimen/_15sdp"/>
+            <TextView
+                android:id="@+id/pickIdNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:text=""
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15sdp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/lPickId1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+
+            android:layout_below="@+id/lPickId"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pick ID :"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:textSize="@dimen/_15sdp"/>
+            <TextView
+                android:id="@+id/pickIdNo1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:text=""
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15sdp"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lPickId1"
+            android:layout_marginTop="@dimen/_10sdp">
+
+            <Button
+                android:id="@+id/addBox"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/fill_button_selector"
+                android:textColor="@drawable/fill_button_text_selector"
+                app:backgroundTint="@null"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginEnd="@dimen/_25sdp"
+                android:text="Add a Box"
+                android:textAlignment="center"
+                tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/reviewBoxe"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@id/addBox"
+            android:layout_alignStart="@+id/addBox"
+            android:layout_marginStart="0dp"
+            android:background="@drawable/fill_button_selector"
+            android:textColor="@drawable/fill_button_text_selector"
+            app:backgroundTint="@null"
+            android:layout_marginEnd="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:text="Review Boxes"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/completePack"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@id/reviewBoxe"
+            android:layout_marginEnd="@dimen/_25sdp"
+            app:backgroundTint="@null"
+            android:background="@drawable/fill_button_selector"
+            android:textColor="@drawable/fill_button_text_selector"
+            android:layout_alignStart="@+id/reviewBoxe"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:text="Complete Pack"
+            tools:ignore="MissingConstraints" />
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

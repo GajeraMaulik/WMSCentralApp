@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PoRecevingScreens.PoShippingDetailActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sdp"
+        android:background="@drawable/custom_toolbar"
+        tools:ignore="MissingConstraints">
+
+
+        <ImageView
+            android:id="@+id/back_posd_Btn"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            app:srcCompat="@drawable/short_left"
+            tools:ignore="ContentDescription,RtlHardcoded,RtlSymmetry" />
+
+        <TextView
+            android:id="@+id/title_Packoder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Detail"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/poReceivingSaveLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="Save"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_60sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolBar"
+        tools:ignore="UnknownId">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolBar">
+
+
+    <TextView
+        android:id="@+id/tvContainerNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Container Number"
+        android:textColor="@color/black"
+        android:textFontWeight="400"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:textSize="@dimen/_15sdp"
+        tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/etContainerNumber"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@+id/tvContainerNumber"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:inputType="numberDecimal"
+            android:singleLine="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
+            android:background="@drawable/bhd_et_bg"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/_10sdp"
+            android:textColor="@color/black"
+            android:textFontWeight="600"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvBoarChartNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etContainerNumber"
+            android:text="Boar Chart Number"
+            android:textColor="@color/black"
+            android:textFontWeight="400"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:textSize="@dimen/_15sdp"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/etBoarChartNumber"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@+id/tvBoarChartNumber"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:inputType="numberDecimal"
+            android:singleLine="true"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
+            android:background="@drawable/bhd_et_bg"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/_10sdp"
+            android:textColor="@color/black"
+            android:textFontWeight="600"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvNote1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etBoarChartNumber"
+            android:text="Note 1"
+            android:textColor="@color/black"
+            android:textFontWeight="400"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:textSize="@dimen/_15sdp"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/etNote1"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@+id/tvNote1"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:inputType="numberDecimal"
+            android:singleLine="true"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
+            android:background="@drawable/bhd_et_bg"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/_10sdp"
+            android:textColor="@color/black"
+            android:textFontWeight="600"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvNote2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etNote1"
+            android:text="Note 2"
+            android:textColor="@color/black"
+            android:textFontWeight="400"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:textSize="@dimen/_15sdp"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/etNote2"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@+id/tvNote2"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:inputType="numberDecimal"
+            android:singleLine="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
+            android:background="@drawable/bhd_et_bg"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/_10sdp"
+            android:textColor="@color/black"
+            android:textFontWeight="600"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvNote3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etNote2"
+            android:text="Note 3"
+            android:textColor="@color/black"
+            android:textFontWeight="400"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:textSize="@dimen/_15sdp"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/etNote3"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@+id/tvNote3"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:inputType="numberDecimal"
+            android:singleLine="true"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
+            android:background="@drawable/bhd_et_bg"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/_10sdp"
+            android:textColor="@color/black"
+            android:textFontWeight="600"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvNote4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etNote3"
+            android:text="Note 4"
+            android:textColor="@color/black"
+            android:textFontWeight="400"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:textSize="@dimen/_15sdp"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/etNote4"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@+id/tvNote4"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:inputType="numberDecimal"
+            android:singleLine="true"
+            android:layout_marginEnd="@dimen/_25sdp"
+            android:background="@drawable/bhd_et_bg"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/_10sdp"
+            android:textColor="@color/black"
+            android:textFontWeight="600"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvNote5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etNote4"
+            android:text="Note 5"
+            android:textColor="@color/black"
+            android:textFontWeight="400"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:textSize="@dimen/_15sdp"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/etNote5"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@+id/tvNote5"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
+            android:inputType="numberDecimal"
+            android:singleLine="true"
+            android:background="@drawable/bhd_et_bg"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/_10sdp"
+            android:textColor="@color/black"
+            android:textFontWeight="600"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

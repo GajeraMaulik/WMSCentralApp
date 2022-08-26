@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Clp.ReceiveContainerActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sdp"
+        android:background="@drawable/custom_toolbar"
+        tools:ignore="MissingConstraints">
+
+
+        <ImageView
+            android:id="@+id/back_Batches_Btn"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            app:srcCompat="@drawable/short_left"
+            tools:ignore="ContentDescription,RtlHardcoded,RtlSymmetry" />
+
+        <TextView
+            android:id="@+id/title_Packoder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Your Receive Container"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15sdp" />
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+        <EditText
+            android:id="@+id/etOrder"
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@+id/toolBar"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
+            android:background="@drawable/et_rc_bg"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/_10sdp"
+            android:text="1"
+            android:textColor="@color/black"
+            android:textFontWeight="600"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnEnter"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_alignTop="@+id/etOrder"
+        android:layout_alignEnd="@+id/etOrder"
+        android:background="@drawable/fill_button_selector"
+        android:textColor="@drawable/fill_button_text_selector"
+        android:gravity="center_vertical|center"
+        app:backgroundTint="@null"
+        android:text="Enter"
+        android:textSize="@dimen/_15sdp"
+        app:layout_constraintEnd_toEndOf="@+id/etOrder"
+        app:layout_constraintTop_toTopOf="@+id/etOrder"
+        tools:ignore="ContentDescription,RtlHardcoded,RtlSymmetry" />
+
+        <TextView
+            android:id="@+id/tvOrder"
+            android:layout_width="@dimen/_260sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@+id/etOrder"
+            android:background="@color/receive"
+            android:textColor="@color/black"
+            android:gravity="center_vertical"
+            android:visibility="gone"
+            android:textFontWeight="600"
+            android:paddingStart="@dimen/_10sdp"
+            android:text="1"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"/>
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

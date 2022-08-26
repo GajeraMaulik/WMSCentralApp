@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">WMS Central App</string>
+    <string name="dialogTitle">Alert Dialog</string>
+    <string name="dialogMessage">Oder No</string>
+    <string name="txt_Title_pickOder">There’s some pick didn’t submit yet Do you want pick new or continue on exist ?</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

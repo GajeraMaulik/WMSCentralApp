@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PickingItemScreens.ManualSubstitutionActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60sdp"
+            android:background="@drawable/custom_toolbar"
+            tools:ignore="MissingConstraints">
+
+
+            <ImageView
+                android:id="@+id/back_Btn_ms"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                app:srcCompat="@drawable/short_left"
+                tools:ignore="ContentDescription,RtlHardcoded,RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/issue_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Substitution"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold" />
+
+
+        </androidx.appcompat.widget.Toolbar>
+        <LinearLayout
+            android:id="@+id/item_view_ms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolBar"
+            android:padding="@dimen/_10sdp"
+            android:gravity="left"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/itemlabel_ms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="0dp"
+                android:textStyle="bold"
+                android:layout_marginBottom="6dp"
+                android:gravity="center"
+                android:text="ITEM:"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15sdp" />
+
+            <TextView
+                android:id="@+id/tvItemNo_ms"
+                android:layout_width="@dimen/_140sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:padding="@dimen/_10sdp"
+                android:paddingStart="@dimen/_12sdp"
+                android:text="00000"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/black"
+                android:layout_alignTop="@+id/itemlabel_mr"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_toRightOf="@+id/itemlabel_mr"
+                android:background="@drawable/mi_et_bg" />
+
+
+
+            <ImageView
+                android:id="@+id/scanLogo_ms"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:src="@drawable/smallscanicon" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bin_view_ms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_view_ms"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/binlabel_ms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="0dp"
+                android:textStyle="bold"
+                android:layout_marginBottom="6dp"
+                android:gravity="center"
+                android:text="BIN:"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15sdp" />
+
+            <TextView
+                android:id="@+id/tvBinNo_ms"
+                android:layout_width="@dimen/_140sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_alignTop="@+id/itemlabel_pd"
+                android:layout_marginStart="@dimen/_19sdp"
+                android:paddingStart="@dimen/_15sdp"
+                android:text=""
+                android:textSize="@dimen/_12sdp"
+                android:padding="@dimen/_10sdp"
+                android:layout_toRightOf="@+id/itemlabel_pd"
+                android:background="@drawable/mi_et_bg"
+                android:textColor="@color/black" />
+
+
+            <ImageView
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_alignTop="@+id/itemNo_pd"
+                android:layout_alignBottom="@+id/itemNo_pd"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_toRightOf="@+id/itemNo_pd"
+                android:src="@drawable/smallscanicon" />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btnSubmit_ms"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+
+            android:layout_below="@+id/bin_view_ms"
+            android:layout_marginTop="@dimen/_260sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@drawable/fill_button_selector"
+            android:fontFamily="@font/open_sans"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Submit"
+
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@drawable/fill_button_text_selector"
+            android:textFontWeight="600"
+            android:textSize="@dimen/_10sdp"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:backgroundTint="@null"
+            tools:ignore="MissingConstraints" />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

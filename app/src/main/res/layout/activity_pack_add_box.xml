@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PackOderScreens.PackAddBoxActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60sdp"
+            android:background="@drawable/custom_toolbar"
+            tools:ignore="MissingConstraints">
+
+
+            <ImageView
+                android:id="@+id/back_Packbox_Btn"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                app:srcCompat="@drawable/short_left"
+                tools:ignore="ContentDescription,RtlHardcoded,RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/title_Packoder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Picking Number"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/packBoxItemLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="List"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
+            android:id="@+id/lBoxNo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+
+            android:layout_below="@+id/toolBar"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Box Number:"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/black"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:textSize="@dimen/_15sdp"/>
+            <TextView
+                android:id="@+id/boxNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:text=""
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15sdp"/>
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lBoxNo"
+            android:layout_marginTop="@dimen/_10sdp">
+
+            <Button
+                android:id="@+id/addItem"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginEnd="@dimen/_25sdp"
+                android:background="@drawable/fill_button_selector"
+                android:text="Add Item"
+                android:textAlignment="center"
+                android:textColor="@drawable/fill_button_text_selector"
+                app:backgroundTint="@null"
+                tools:ignore="MissingConstraints" />
+
+            <Button
+                android:id="@+id/reviewItmesBox"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_below="@id/addItem"
+                android:layout_alignStart="@+id/addItem"
+                android:layout_marginStart="0dp"
+                android:background="@drawable/fill_button_selector"
+                android:textColor="@drawable/fill_button_text_selector"
+                app:backgroundTint="@null"
+                android:layout_marginEnd="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:text="Review Itmes In Boxes"
+                tools:ignore="MissingConstraints" />
+
+            <Button
+                android:id="@+id/boxHeaderDetails"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_below="@id/reviewItmesBox"
+                android:layout_alignStart="@+id/reviewItmesBox"
+                android:background="@drawable/fill_button_selector"
+                android:textColor="@drawable/fill_button_text_selector"
+                app:backgroundTint="@null"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginEnd="@dimen/_25sdp"
+                android:text="Box Header Details"
+                tools:ignore="MissingConstraints" />
+
+            <Button
+                android:id="@+id/orderHeaderDetails"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_below="@id/boxHeaderDetails"
+                android:layout_marginEnd="@dimen/_25sdp"
+                android:layout_alignStart="@+id/boxHeaderDetails"
+                android:background="@drawable/fill_button_selector"
+                app:backgroundTint="@null"
+                android:textColor="@drawable/fill_button_text_selector"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:text="Order Header Details"
+                tools:ignore="MissingConstraints" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
