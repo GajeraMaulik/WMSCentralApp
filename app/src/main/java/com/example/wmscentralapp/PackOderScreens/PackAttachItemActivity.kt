@@ -1,6 +1,5 @@
 package com.example.wmscentralapp.PackOderScreens
 
-import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Intent
 import android.graphics.Color
@@ -8,18 +7,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
-import android.widget.Adapter
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
-import com.example.wmscentralapp.Activity.MainActivity
-import com.example.wmscentralapp.PickingItemScreens.SuggestedItemActivity
+import com.example.wmscentralapp.LoginScreens.MainActivity
 import com.example.wmscentralapp.R
 import com.example.wmscentralapp.SharePref
-import kotlinx.android.synthetic.main.activity_box_header_details.*
 import kotlinx.android.synthetic.main.activity_pack_attach_item.*
-import kotlinx.android.synthetic.main.items_choose_dialog.*
 
 class PackAttachItemActivity : AppCompatActivity() {
     lateinit var dialog: Dialog

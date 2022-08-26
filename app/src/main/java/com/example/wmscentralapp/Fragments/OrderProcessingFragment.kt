@@ -1,6 +1,5 @@
 package com.example.wmscentralapp.Fragments
 
-import android.app.Activity
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
@@ -16,7 +15,7 @@ import com.example.wmscentralapp.PackOderScreens.PackOrderScanActivity
 import com.example.wmscentralapp.PackOderScreens.PickingItem.PickedItemActivity
 import com.example.wmscentralapp.R
 import com.example.wmscentralapp.PackOderScreens.PickingItem.ScanViewActivity
-import com.example.wmscentralapp.PickBatch.BatchesActivity
+import com.example.wmscentralapp.PickBatchScreens.BatchesActivity
 import com.example.wmscentralapp.SharePref
 import kotlinx.android.synthetic.main.fragment_order_processing.*
 

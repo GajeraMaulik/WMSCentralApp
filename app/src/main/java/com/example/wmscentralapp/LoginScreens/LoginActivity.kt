@@ -1,4 +1,4 @@
-package com.example.wmscentralapp.Activity
+package com.example.wmscentralapp.LoginScreens
 
 import android.app.ProgressDialog
 import android.content.Intent

@@ -1,4 +1,4 @@
-package com.example.wmscentralapp.OrderComment
+package com.example.wmscentralapp.OrderCommentModel
 
 import org.simpleframework.xml.ElementList
 import org.simpleframework.xml.Root

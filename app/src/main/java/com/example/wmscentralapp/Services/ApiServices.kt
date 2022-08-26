@@ -2,7 +2,7 @@ package com.example.wmscentralapp.Services
 
 import android.text.Editable
 import com.example.userlogindemo.XmlParsingWithApi.Users
-import com.example.wmscentralapp.OrderComment.OrderCommentsListResponse
+import com.example.wmscentralapp.OrderCommentModel.OrderCommentsListResponse
 import com.example.wmscentralapp.PickOrderScreens.Zwms
 import retrofit2.Call
 import retrofit2.http.GET

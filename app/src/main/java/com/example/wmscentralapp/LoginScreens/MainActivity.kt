@@ -1,4 +1,4 @@
-package com.example.wmscentralapp.Activity
+package com.example.wmscentralapp.LoginScreens
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -12,7 +12,6 @@ import androidx.viewpager.widget.ViewPager
 import com.example.wmscentralapp.Adapter.ViewPagerAdapter
 import com.example.wmscentralapp.Fragments.InventoryFragment
 import com.example.wmscentralapp.Fragments.OrderProcessingFragment
-import com.example.wmscentralapp.Activity.LoginActivity
 import com.example.wmscentralapp.R
 import com.example.wmscentralapp.SharePref
 import com.google.android.material.tabs.TabLayout

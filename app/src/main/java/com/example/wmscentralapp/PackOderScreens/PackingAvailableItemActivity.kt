@@ -4,14 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.ContextCompat
-import com.example.wmscentralapp.Activity.MainActivity
-import com.example.wmscentralapp.Adapter.PIAAdapter
 import com.example.wmscentralapp.Adapter.PackAvailableAdapter
-import com.example.wmscentralapp.Model.PIAData
 import com.example.wmscentralapp.Model.PackAvailableData
 import com.example.wmscentralapp.R
 import kotlinx.android.synthetic.main.activity_pack_available_item.*
-import kotlinx.android.synthetic.main.activity_picking_item_available.*
 
 class PackingAvailableItemActivity : AppCompatActivity() {
 

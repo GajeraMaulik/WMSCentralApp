@@ -12,8 +12,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.core.content.ContextCompat
-import com.example.wmscentralapp.Activity.MainActivity
-import com.example.wmscentralapp.OrderComment.OrderCommentsListResponse
+import com.example.wmscentralapp.LoginScreens.MainActivity
+import com.example.wmscentralapp.OrderCommentModel.OrderCommentsListResponse
 import com.example.wmscentralapp.PickOrderScreens.OrderInfo
 import com.example.wmscentralapp.R
 import com.example.wmscentralapp.Services.Client

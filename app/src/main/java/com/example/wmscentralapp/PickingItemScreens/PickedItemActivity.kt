@@ -5,10 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log.d
 import androidx.core.content.ContextCompat
-import com.example.wmscentralapp.Activity.MainActivity
+import com.example.wmscentralapp.LoginScreens.MainActivity
 import com.example.wmscentralapp.Adapter.PickedItemAdapter
-import com.example.wmscentralapp.Model.PIAData
-import com.example.wmscentralapp.Model.PickReviewData
 import com.example.wmscentralapp.Model.PickedItemData
 import com.example.wmscentralapp.R
 import kotlinx.android.synthetic.main.activity_picked_item.*

@@ -14,7 +14,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.example.wmscentralapp.Activity.MainActivity
+import com.example.wmscentralapp.LoginScreens.MainActivity
 import com.example.wmscentralapp.Adapter.ItemsDetailsAdapter
 import com.example.wmscentralapp.PickOrderScreens.OrderInfo
 import com.example.wmscentralapp.PickOrderScreens.Zwms

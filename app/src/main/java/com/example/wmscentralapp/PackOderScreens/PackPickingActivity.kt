@@ -11,10 +11,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.core.content.ContextCompat
-import com.example.wmscentralapp.Activity.MainActivity
+import com.example.wmscentralapp.LoginScreens.MainActivity
 import com.example.wmscentralapp.R
-import com.example.wmscentralapp.SharePref
-import kotlinx.android.synthetic.main.activity_manual_transfer.*
 import kotlinx.android.synthetic.main.activity_pack_picking.*
 
 class PackPickingActivity : AppCompatActivity() {

@@ -4,13 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.ContextCompat
-import com.example.wmscentralapp.Activity.MainActivity
-import com.example.wmscentralapp.Adapter.PackReviewBoxAdapter
 import com.example.wmscentralapp.Adapter.ReviewBoxesAdapter
 import com.example.wmscentralapp.Model.PackAvailableData
 import com.example.wmscentralapp.R
 import kotlinx.android.synthetic.main.activity_review_boxes.*
-import kotlinx.android.synthetic.main.activity_review_items_box.*
 
 class ReviewBoxesActivity : AppCompatActivity() {
      var packReviewBoxesList: ArrayList<PackAvailableData> = ArrayList()

@@ -1,4 +1,4 @@
-package com.example.wmscentralapp.PickBatch
+package com.example.wmscentralapp.PickBatchScreens
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

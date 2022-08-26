@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InventoryTransactionScreens.InventoryTransactionActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBar_It"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sdp"
+        android:background="@drawable/custom_toolbar"
+        tools:ignore="MissingConstraints">
+
+
+        <ImageView
+            android:id="@+id/back_it_Btn"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            app:srcCompat="@drawable/short_left"
+            tools:ignore="ContentDescription,RtlHardcoded,RtlSymmetry" />
+
+        <TextView
+            android:id="@+id/title_It"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Inventory Transaction"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold" />
+
+
+    </androidx.appcompat.widget.Toolbar>
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolBar_It"
+
+            app:layout_constraintTop_toBottomOf="@id/toolBar_It"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="UnknownId">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/itIssue_Btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginEnd="@dimen/_25sdp"
+                android:text="Issue"
+                android:textAlignment="center"
+                app:backgroundTint="@null"
+                android:background="@drawable/fill_button_selector"
+                android:textColor="@drawable/fill_button_text_selector"
+                tools:ignore="MissingConstraints" />
+            <Button
+                android:id="@+id/itReceive_Btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/itIssue_Btn"
+                android:layout_marginStart="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginEnd="@dimen/_25sdp"
+                android:text="Receive"
+                android:textAlignment="center"
+                app:backgroundTint="@null"
+                android:background="@drawable/fill_button_selector"
+                android:textColor="@drawable/fill_button_text_selector"
+                tools:ignore="MissingConstraints" />
+            <Button
+                android:id="@+id/itTransfer_Btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/itReceive_Btn"
+                android:layout_marginStart="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginEnd="@dimen/_25sdp"
+                android:text="Transfer"
+                android:textAlignment="center"
+                app:backgroundTint="@null"
+                android:background="@drawable/fill_button_selector"
+                android:textColor="@drawable/fill_button_text_selector"
+                tools:ignore="MissingConstraints" />
+            <Button
+                android:id="@+id/itPutAway_Btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/itTransfer_Btn"
+                android:layout_marginStart="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginEnd="@dimen/_25sdp"
+                android:text="Put Away"
+                android:textAlignment="center"
+                app:backgroundTint="@null"
+                android:background="@drawable/fill_button_selector"
+                android:textColor="@drawable/fill_button_text_selector"
+                tools:ignore="MissingConstraints" />
+            <Button
+                android:id="@+id/itLookUpItem_Btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/itPutAway_Btn"
+                android:layout_marginStart="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginEnd="@dimen/_25sdp"
+                android:text="Look Up Item"
+                android:textAlignment="center"
+                app:backgroundTint="@null"
+                android:background="@drawable/fill_button_selector"
+                android:textColor="@drawable/fill_button_text_selector"
+                tools:ignore="MissingConstraints" />
+            <Button
+                android:id="@+id/itInventoryCount_Btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/itLookUpItem_Btn"
+                android:layout_marginStart="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginEnd="@dimen/_25sdp"
+                android:text="Inventory Count"
+                android:textAlignment="center"
+                app:backgroundTint="@null"
+                android:background="@drawable/fill_button_selector"
+                android:textColor="@drawable/fill_button_text_selector"
+                tools:ignore="MissingConstraints" />
+            <Button
+                android:id="@+id/itChangeLocation_Btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/itInventoryCount_Btn"
+                android:layout_marginStart="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginEnd="@dimen/_25sdp"
+                android:text="Change Location"
+                android:textAlignment="center"
+                app:backgroundTint="@null"
+                android:background="@drawable/fill_button_selector"
+                android:textColor="@drawable/fill_button_text_selector"
+                tools:ignore="MissingConstraints" />
+
+        </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

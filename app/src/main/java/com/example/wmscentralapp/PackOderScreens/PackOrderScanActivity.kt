@@ -14,12 +14,10 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import com.example.wmscentralapp.Activity.MainActivity
+import com.example.wmscentralapp.LoginScreens.MainActivity
 import com.example.wmscentralapp.R
 import com.example.wmscentralapp.SharePref
-import kotlinx.android.synthetic.main.activity_pack_add_box.*
 import kotlinx.android.synthetic.main.activity_pack_order.*
-import kotlinx.android.synthetic.main.fragment_order_processing.*
 
 class PackOrderScanActivity : AppCompatActivity() {
     var etPickId: EditText? = null
