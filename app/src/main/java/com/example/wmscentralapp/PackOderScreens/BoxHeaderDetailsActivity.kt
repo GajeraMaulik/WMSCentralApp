@@ -3,6 +3,7 @@ package com.example.wmscentralapp.PackOderScreens
 import android.app.Dialog
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log.d
@@ -36,7 +37,10 @@ class BoxHeaderDetailsActivity : AppCompatActivity() {
         actionBar.setDisplayHomeAsUpEnabled(true)
         window.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimary)
 
+        val dialogBinding = layoutInflater.inflate(R.layout.item_dialog,null)
         dialog = Dialog(this)
+        dialog.setContentView(dialogBinding)
+
 
         back_bhd_Btn.setOnClickListener {
             onBackPressed()
@@ -111,6 +115,8 @@ class BoxHeaderDetailsActivity : AppCompatActivity() {
             dialog.dismiss()
         })
 
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
         dialog.setCancelable(true)
         dialog.show()
     }
@@ -153,7 +159,7 @@ class BoxHeaderDetailsActivity : AppCompatActivity() {
             val params: ViewGroup.LayoutParams = okbtn.getLayoutParams()
             params.height = height / 15 // 10%
 
-            params.width = width * 70 / 100 // 20%
+            params.width = width * 50 / 100 // 20%
 
             okbtn.setLayoutParams(params)
 
@@ -165,6 +171,7 @@ class BoxHeaderDetailsActivity : AppCompatActivity() {
                 startActivity(i)
             }
 
+            dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
             dialog.show()
             dialog.setCanceledOnTouchOutside(false)

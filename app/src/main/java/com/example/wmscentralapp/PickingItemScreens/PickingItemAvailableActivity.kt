@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -38,13 +39,18 @@ class PickingItemAvailableActivity : AppCompatActivity() {
         actionBar.setDisplayHomeAsUpEnabled(true)
         window.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimary)
 
+        val dialogBinding = layoutInflater.inflate(R.layout.item_dialog,null)
+        dialog = Dialog(this)
+        dialog.setContentView(dialogBinding)
+
+
+        val itemNo = intent.getStringExtra("aItemno")
+        title_Pickoder.text = itemNo
+
 
         back_Btn_Pia.setOnClickListener {
             onBackPressed()
-            return@setOnClickListener
         }
-        dialog = Dialog(this)
-
 
 
         moreDetails.setOnClickListener {
@@ -71,6 +77,7 @@ class PickingItemAvailableActivity : AppCompatActivity() {
         val view = LayoutInflater.from(this)
             .inflate(R.layout.item_bottom_sheet_dialog,
                 findViewById<ConstraintLayout>(R.id.bottomsheet))
+        view.setBackgroundColor(Color.TRANSPARENT)
         view.findViewById<Button>(R.id.bsd_Single).setOnClickListener {
             Toast.makeText(this, "Single", Toast.LENGTH_SHORT).show()
             dialog.dismiss()
@@ -91,6 +98,7 @@ class PickingItemAvailableActivity : AppCompatActivity() {
             dialog.dismiss()
             Dialog()
         }
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.setCancelable(false)
         dialog.setCanceledOnTouchOutside(false)
         dialog.setContentView(view)
@@ -138,6 +146,7 @@ class PickingItemAvailableActivity : AppCompatActivity() {
             Log.d("oderpick", "------------>cancel ")
             dialog.dismiss()
         }
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.show()
         dialog.setCanceledOnTouchOutside(false)
     }
@@ -189,7 +198,7 @@ class PickingItemAvailableActivity : AppCompatActivity() {
             alertDialog()
         }
 
-
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.show()
         dialog.setCanceledOnTouchOutside(false)
     }
@@ -245,7 +254,7 @@ class PickingItemAvailableActivity : AppCompatActivity() {
             dialog.dismiss()
         }
 
-
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.show()
         dialog.setCanceledOnTouchOutside(false)
     }

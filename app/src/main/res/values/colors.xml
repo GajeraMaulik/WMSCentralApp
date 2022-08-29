@@ -14,6 +14,8 @@
     <color name="edit">#38CD9EC6</color>
     <color name="scanbg">#A5C3E5</color>
     <color name="scanbg1">#9CC184</color>
+    <color name="searchbar">#59D9D9D9</color>
+    <color name="searchbarlist">#D9D9D9</color>
     <color name="scanbg2">#00C4B4</color>
     <color name="edittext">#FFEBFC</color>
     <color name="pia">#409B9BA3</color>

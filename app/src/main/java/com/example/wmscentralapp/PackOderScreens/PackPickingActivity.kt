@@ -3,6 +3,7 @@ package com.example.wmscentralapp.PackOderScreens
 import android.app.Dialog
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
@@ -90,8 +91,9 @@ class PackPickingActivity : AppCompatActivity() {
 
         //   txt_title.text = title
 
-        //set message for alert dialog
-        dialog.setContentView(R.layout.item_dialog)
+
+        val dialogBinding = layoutInflater.inflate(R.layout.item_dialog,null)
+        dialog.setContentView(dialogBinding)
 
         val okbtn = dialog.findViewById<Button>(R.id.btnContinue)
         val cancelbtn = dialog.findViewById<Button>(R.id.btnNew)
@@ -116,6 +118,8 @@ class PackPickingActivity : AppCompatActivity() {
         cancelbtn.setOnClickListener {
           dialog.dismiss()
         }
+
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         dialog.show()
         dialog.setCanceledOnTouchOutside(false)
@@ -170,6 +174,7 @@ class PackPickingActivity : AppCompatActivity() {
             dialog.dismiss()
         }
 
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         dialog.show()
         dialog.setCanceledOnTouchOutside(false)

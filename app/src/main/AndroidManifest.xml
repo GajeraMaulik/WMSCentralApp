@@ -25,6 +25,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".InventoryTransactionScreens.InventoryCountListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".InventoryTransactionScreens.AlphaScanViewActivity"
+            android:exported="false" />
+        <activity
             android:name=".InventoryTransactionScreens.ItemsScanViewActivity"
             android:exported="false" />
         <activity

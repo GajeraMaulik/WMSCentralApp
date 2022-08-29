@@ -2,6 +2,8 @@ package com.example.wmscentralapp.Fragments
 
 import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -33,7 +35,10 @@ class InventoryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val dialogBinding = layoutInflater.inflate(R.layout.item_dialog,null)
         dialog = Dialog(requireContext())
+
+        dialog.setContentView(dialogBinding)
 
         poReceiving.setOnClickListener {
             poDialog()
@@ -82,6 +87,8 @@ class InventoryFragment : Fragment() {
             startActivity(intent)
 
         }
+
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.show()
         dialog.setCanceledOnTouchOutside(false)
 

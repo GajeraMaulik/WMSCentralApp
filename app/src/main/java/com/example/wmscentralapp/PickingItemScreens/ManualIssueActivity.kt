@@ -3,6 +3,7 @@ package com.example.wmscentralapp.PickingItemScreens
 import android.annotation.SuppressLint
 import android.app.Dialog
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputType
@@ -32,7 +33,10 @@ class ManualIssueActivity : AppCompatActivity() {
         actionBar.setDisplayHomeAsUpEnabled(true)
         window.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimary)
 
+
+        val dialogBinding = layoutInflater.inflate(R.layout.item_dialog,null)
         dialog = Dialog(this)
+        dialog.setContentView(dialogBinding)
 
         val binno = intent.getStringExtra("binNo")
         val itemno = SharePref.getStringValue(this,"itemno")
@@ -97,6 +101,9 @@ class ManualIssueActivity : AppCompatActivity() {
             Log.d("oderpick", "------------>cancel ")
             dialog.dismiss()
         }
+
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
         dialog.show()
         dialog.setCanceledOnTouchOutside(false)
     }
@@ -160,6 +167,7 @@ class ManualIssueActivity : AppCompatActivity() {
             }
         }
 
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         dialog.show()
         dialog.setCanceledOnTouchOutside(false)
@@ -211,6 +219,7 @@ class ManualIssueActivity : AppCompatActivity() {
             dialog.dismiss()
         }
 
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         dialog.show()
         dialog.setCanceledOnTouchOutside(false)

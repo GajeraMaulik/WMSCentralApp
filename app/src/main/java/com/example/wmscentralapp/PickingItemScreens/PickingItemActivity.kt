@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -39,7 +40,9 @@ class PickingItemActivity : AppCompatActivity()  {
         actionBar.setDisplayHomeAsUpEnabled(true)
         window.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimary)
 
+        val dialogBinding = layoutInflater.inflate(R.layout.item_dialog,null)
         dialog = Dialog(this)
+        dialog.setContentView(dialogBinding)
 
 
         back_Pickitem_Btn.setOnClickListener {
@@ -167,6 +170,7 @@ class PickingItemActivity : AppCompatActivity()  {
             Log.d("oderpick", "------------>cancel ")
             dialog.dismiss()
         }
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.show()
         dialog.setCanceledOnTouchOutside(false)
     }
@@ -218,7 +222,7 @@ class PickingItemActivity : AppCompatActivity()  {
             alertDialog()
         }
 
-
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.show()
         dialog.setCanceledOnTouchOutside(false)
     }
@@ -272,7 +276,7 @@ class PickingItemActivity : AppCompatActivity()  {
             dialog.dismiss()
         }
 
-
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.show()
         dialog.setCanceledOnTouchOutside(false)
     }
@@ -320,6 +324,7 @@ class PickingItemActivity : AppCompatActivity()  {
             lBinno.visibility = View.GONE
             dialog.dismiss()
         }
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.show()
         dialog.setCanceledOnTouchOutside(false)
     }
@@ -341,6 +346,7 @@ class PickingItemActivity : AppCompatActivity()  {
         okbtn.visibility = View.GONE
         cancelbtn.visibility = View.GONE
 
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.show()
         dialog.setCanceledOnTouchOutside(false)
 

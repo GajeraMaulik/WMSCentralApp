@@ -2,6 +2,8 @@ package com.example.wmscentralapp.Fragments
 
 import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -31,7 +33,10 @@ class OrderProcessingFragment : Fragment() {
      //   return inflater.inflate(R.layout.fragment_order_processing, container, false)
         val pickOder = view.findViewById<Button>(R.id.pickOder)
 
+        val dialogBinding = layoutInflater.inflate(R.layout.item_dialog,null)
         dialog = Dialog(requireContext())
+
+        dialog.setContentView(dialogBinding)
 
         pickOder.setOnClickListener {
             Dialog()
@@ -82,7 +87,6 @@ class OrderProcessingFragment : Fragment() {
         //set title for alert dialog
      //   dialog.setTitle()
         //set message for alert dialog
-        dialog.setContentView(R.layout.item_dialog)
 
 
         val continuebtn = dialog.findViewById<Button>(R.id.btnContinue)
@@ -110,6 +114,7 @@ class OrderProcessingFragment : Fragment() {
             activity?.finish()
 
         }
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.show()
         dialog.setCanceledOnTouchOutside(false)
     }

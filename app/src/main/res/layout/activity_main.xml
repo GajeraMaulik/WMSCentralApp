@@ -76,9 +76,10 @@
                     app:tabBackground="@drawable/tab_backgrogd_color_selecter"
                     app:tabGravity="fill"
                     app:tabIndicator="@drawable/tab_indicator_coner_bg"
-                    app:tabIndicatorColor="@color/white"
+                    app:tabIndicatorColor="@color/colorPrimary"
                     app:tabMode="fixed"
                     app:tabRippleColor="@null"
+
                     app:tabSelectedTextColor="@color/white"
                     app:tabTextColor="@color/colorPrimary"
                     tools:ignore="MissingConstraints,NotSibling" />

@@ -3,6 +3,7 @@ package com.example.wmscentralapp.PoRecevingScreens
 import android.app.Dialog
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -32,7 +33,9 @@ class RecevingOrderNoActivity : AppCompatActivity() {
         actionBar.setDisplayHomeAsUpEnabled(true)
         window.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimary)
 
+        val dialogBinding = layoutInflater.inflate(R.layout.item_dialog,null)
         dialog = Dialog(this)
+        dialog.setContentView(dialogBinding)
 
         val orderNo = intent.getStringExtra( "poOderno")
 
@@ -89,6 +92,8 @@ class RecevingOrderNoActivity : AppCompatActivity() {
         okbtn.visibility = View.GONE
         cancelbtn.visibility = View.GONE
         subtitle.visibility = View.VISIBLE
+
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         dialog.show()
         dialog.setCanceledOnTouchOutside(false)

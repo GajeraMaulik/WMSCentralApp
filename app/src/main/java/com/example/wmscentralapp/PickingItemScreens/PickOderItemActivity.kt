@@ -3,6 +3,7 @@ package com.example.wmscentralapp.PackOderScreens.PickingItem
 import android.app.Dialog
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputType
@@ -42,7 +43,9 @@ class PickOderItemActivity : AppCompatActivity() {
 
 
 
+        val dialogBinding = layoutInflater.inflate(R.layout.item_dialog,null)
         dialog = Dialog(this)
+        dialog.setContentView(dialogBinding)
 
         pickItems.setOnClickListener {
             val intent = Intent(this@PickOderItemActivity, PickingItemActivity::class.java)
@@ -130,6 +133,8 @@ class PickOderItemActivity : AppCompatActivity() {
             startActivity(i)
         }
 
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
         dialog.show()
         dialog.setCanceledOnTouchOutside(false)
     }
@@ -179,6 +184,7 @@ class PickOderItemActivity : AppCompatActivity() {
           dialog.dismiss()
         }
 
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         dialog.show()
         dialog.setCanceledOnTouchOutside(false)
@@ -258,6 +264,8 @@ class PickOderItemActivity : AppCompatActivity() {
          dialog.dismiss()
         }
 
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
         dialog.show()
         dialog.setCanceledOnTouchOutside(false)
     }
@@ -308,6 +316,9 @@ class PickOderItemActivity : AppCompatActivity() {
             Log.d("oderpick", "------------>cancel ")
             dialog.dismiss()
         }
+
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
         dialog.show()
         dialog.setCanceledOnTouchOutside(false)
     }
@@ -356,6 +367,7 @@ class PickOderItemActivity : AppCompatActivity() {
             dialog.dismiss()
         }
 
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         dialog.show()
         dialog.setCanceledOnTouchOutside(false)

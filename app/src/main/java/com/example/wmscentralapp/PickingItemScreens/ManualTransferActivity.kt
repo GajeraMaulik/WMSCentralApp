@@ -3,6 +3,7 @@ package com.example.wmscentralapp.PickingItemScreens
 import android.annotation.SuppressLint
 import android.app.Dialog
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputType
@@ -33,7 +34,10 @@ class ManualTransferActivity : AppCompatActivity() {
         actionBar.setDisplayHomeAsUpEnabled(true)
         window.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimary)
 
+        val dialogBinding = layoutInflater.inflate(R.layout.item_dialog,null)
         dialog = Dialog(this)
+        dialog.setContentView(dialogBinding)
+
         val binno = intent.getStringExtra("binNo")
         val itemno = SharePref.getStringValue(this,"itemno")
 
@@ -90,6 +94,9 @@ class ManualTransferActivity : AppCompatActivity() {
             tvToBinNo_mt.text = binno
             dialog.dismiss()
         }
+
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
         dialog.show()
         dialog.setCanceledOnTouchOutside(false)
     }
@@ -152,6 +159,8 @@ class ManualTransferActivity : AppCompatActivity() {
                 Toast.makeText(this, "Please Enter Your Quantity", Toast.LENGTH_SHORT).show()
             }
         }
+
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
 
         dialog.show()
@@ -216,6 +225,7 @@ class ManualTransferActivity : AppCompatActivity() {
             }
         }
 
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         dialog.show()
         dialog.setCanceledOnTouchOutside(false)
@@ -280,6 +290,7 @@ class ManualTransferActivity : AppCompatActivity() {
             }
         }
 
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         dialog.show()
         dialog.setCanceledOnTouchOutside(false)
@@ -333,6 +344,7 @@ class ManualTransferActivity : AppCompatActivity() {
             tvToBinNo_mt.text = ""
         }
 
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         dialog.show()
         dialog.setCanceledOnTouchOutside(false)

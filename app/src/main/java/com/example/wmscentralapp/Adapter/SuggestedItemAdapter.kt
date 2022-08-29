@@ -49,6 +49,7 @@ class SuggestedItemAdapter: RecyclerView.Adapter<SuggestedItemAdapter.ViewHolder
                     val i = Intent(context, PickingItemAvailableActivity::class.java)
                     i.putExtra("binno", Binno)
                     i.putExtra("itemno",item)
+                    i.putExtra("aItemno",item)
                     SharePref.save(context,"itemno",item)
                     SharePref.save(context,"binno",Binno)
                     context.startActivity(i)

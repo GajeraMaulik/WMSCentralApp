@@ -3,6 +3,8 @@ package com.example.wmscentralapp.Adapter
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -68,7 +70,7 @@ class PIAAdapter:RecyclerView.Adapter<PIAAdapter.ViewHolder> {
 
         val view = LayoutInflater.from(context).inflate(
                 R.layout.item_bottom_sheet_dialog, view.findViewById<ConstraintLayout>(R.id.bottomsheet))
-
+        view.setBackgroundColor(Color.TRANSPARENT)
         view.findViewById<TextView>(R.id.bsd_Title).text = "Manual Operation"
         view.findViewById<Button>(R.id.bsd_Single).text = "Manual Issue"
         view.findViewById<Button>(R.id.bsd_Single).setOnClickListener {
@@ -118,7 +120,7 @@ class PIAAdapter:RecyclerView.Adapter<PIAAdapter.ViewHolder> {
            // Dialog()
         }
         dialog.setCancelable(false)
-
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.setCanceledOnTouchOutside(false)
         dialog.setContentView(view)
         dialog.behavior.setPeekHeight(1500)

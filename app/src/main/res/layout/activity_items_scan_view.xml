@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text=""
+            android:text="Scan view"
             android:textColor="@color/white"
             android:textSize="@dimen/_15sdp"
             android:textStyle="bold" />
@@ -74,7 +74,7 @@
             android:id="@+id/scanView"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_130sdp"
-            android:layout_marginTop="@dimen/_100sdp"
+            android:layout_marginTop="@dimen/_80sdp"
             android:src="@drawable/scanview"
             tools:ignore="NotSibling" />
 
@@ -117,9 +117,9 @@ Reason firmware : Not Available"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_35sdp"
             android:layout_below="@+id/scanLabel_Is"
-            android:visibility="gone"
             android:layout_marginStart="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_10sdp"
+            android:visibility="gone"
             android:layout_marginEnd="@dimen/_15sdp"
             android:background="@drawable/custom_backgroud"
             android:orientation="horizontal">

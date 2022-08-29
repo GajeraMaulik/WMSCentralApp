@@ -3,6 +3,8 @@ package com.example.wmscentralapp.PackOderScreens.PickingItem
 import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.text.Editable
 import android.util.Log
@@ -49,7 +51,10 @@ class ScanViewActivity : AppCompatActivity() {
         actionBar.setDisplayHomeAsUpEnabled(true)
         window.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimary)
 
+        val dialogBinding = layoutInflater.inflate(R.layout.item_dialog,null)
         dialog = Dialog(this)
+        dialog.setContentView(dialogBinding)
+
 
         back_Btn.setOnClickListener {
             onBackPressed()
@@ -110,6 +115,8 @@ class ScanViewActivity : AppCompatActivity() {
             d("oderpick", "------------>cancel ")
             dialog.dismiss()
         }
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
         dialog.show()
         dialog.setCanceledOnTouchOutside(false)
     }
