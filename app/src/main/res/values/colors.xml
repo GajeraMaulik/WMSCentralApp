@@ -7,9 +7,13 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="swichbase">#231F20</color>
     <color name="shadow">#40000000</color>
     <color name="bgTabview">#D9D9D9</color>
 <color name="pickItem">#9B9BA3</color>
+    <color name="countscan">#9FBBDA</color>
+    <color name="countscan1">#285EAB</color>
+    <color name="countscan2">#59C1B3</color>
     <color name="scan">#0360B0</color>
     <color name="edit">#38CD9EC6</color>
     <color name="scanbg">#A5C3E5</color>

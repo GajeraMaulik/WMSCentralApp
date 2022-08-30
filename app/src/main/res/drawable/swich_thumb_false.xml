@@ -2,8 +2,8 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item  >
-        <shape android:shape="oval"
-            >
+        <shape android:shape="oval">
+
             <solid android:color="@color/white"/>
 
             <size android:height="@dimen/_15sdp"
@@ -11,9 +11,11 @@
             <solid android:color="@color/white"/>
 
             <stroke android:width="3sp"
-                android:color="@color/black"
+                android:color="@color/swichbase"
                 />
-
+            <padding android:bottom="@dimen/_2sdp"/>
         </shape>
+
+
     </item>
 </layer-list>

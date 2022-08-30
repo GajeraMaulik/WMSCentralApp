@@ -3,16 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/_10sdp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <androidx.cardview.widget.CardView
-        android:id="@+id/pickedItem_View"
-        android:layout_width="@dimen/_280sdp"
-        android:layout_height="wrap_content"
+        android:id="@+id/itemCount_View"
+        android:layout_width="@dimen/_290sdp"
+        android:layout_height="@dimen/_70sdp"
         android:layout_gravity="center_horizontal"
         android:layout_margin="@dimen/_3sdp"
         android:background="@color/white"
-        android:elevation="@dimen/_10sdp"
         app:cardCornerRadius="@dimen/_5sdp"
         app:cardElevation="@dimen/_10sdp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,8 +19,9 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="@dimen/_290sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:padding="@dimen/_2sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -30,6 +29,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/itemL_Count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
@@ -44,18 +44,19 @@
                     android:id="@+id/itemNo_Count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_32sdp"
+                    android:layout_marginStart="@dimen/_5sdp"
                     android:textFontWeight="600"
                     android:fontFamily="@font/open_sans"
                     android:text="NA"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textSize="@dimen/_15sdp" />
 
 
                 <TextView
+                    android:id="@+id/binL_Count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_40sdp"
+                    android:layout_marginStart="@dimen/_29sdp"
                     android:fontFamily="@font/open_sans"
                     android:text="Bin:"
                     android:textColor="@color/pickItem"
@@ -64,16 +65,16 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/lineNo_Pack"
+                    android:id="@+id/binNo_Count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_52sdp"
+                    android:layout_marginStart="@dimen/_12sdp"
                     android:textFontWeight="600"
                     android:textStyle="bold"
                     android:fontFamily="@font/open_sans"
                     android:text="NA"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textSize="@dimen/_15sdp" />
             </LinearLayout>
 
             <LinearLayout
@@ -84,6 +85,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/qtyL_Count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
@@ -95,15 +97,15 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/qtyNo_Pack"
+                    android:id="@+id/qtyNo_Count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_45sdp"
+                    android:layout_marginStart="@dimen/_15sdp"
                     android:fontFamily="@font/open_sans"
                     android:textStyle="bold"
                     android:text="NA"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textSize="@dimen/_15sdp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -111,9 +113,10 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/tagL_Count"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_40sdp"
+                        android:layout_marginStart="@dimen/_60sdp"
                         android:fontFamily="@font/open_sans"
                         android:text="Tag:"
                         android:textColor="@color/pickItem"
@@ -122,15 +125,17 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/qtyPicked_Pack"
+                        android:id="@+id/tag_Count"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_10sdp"
+                        android:maxLines="1"
+                        android:ellipsize="end"
                         android:fontFamily="@font/open_sans"
                         android:text="NA"
                         android:textStyle="bold"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_12sdp" />
+                        android:textSize="@dimen/_15sdp" />
                 </LinearLayout>
 
 
@@ -143,6 +148,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/timeL_Count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
@@ -157,48 +163,46 @@
                     android:id="@+id/count_Date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_5sdp"
                     android:fontFamily="@font/open_sans"
                     android:text="NA"
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textFontWeight="600"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textSize="@dimen/_15sdp" />
                 <TextView
                     android:id="@+id/count_Time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_2sdp"
                     android:fontFamily="@font/open_sans"
                     android:text="NA"
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textFontWeight="600"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textSize="@dimen/_15sdp" />
 
-             <!--   <TextView
+                <TextView
+                    android:id="@+id/recountL_Count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_5sdp"
                     android:fontFamily="@font/open_sans"
                     android:text="Recount :"
                     android:textColor="@color/pickItem"
                     android:textFontWeight="600"
                     android:textSize="@dimen/_15sdp"
-                    android:textStyle="bold" />-->
+                    android:textStyle="bold" />
 
                 <Switch
-                    android:id="@+id/switch1"
+                    android:id="@+id/reCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:track="@drawable/track"
                     android:thumb="@drawable/thumb"
-                    android:layout_marginStart="@dimen/_30sdp"
-                    android:fontFamily="@font/open_sans"
-                    android:textColor="@color/pickItem"
-                    android:textFontWeight="600"
-                    android:textSize="@dimen/_15sdp"
-                    android:text="Recount :"
+                    
+                    android:text="@null"
+                    android:layout_marginStart="@dimen/_5sdp"
                     tools:ignore="UseSwitchCompatOrMaterialXml" />
 
 

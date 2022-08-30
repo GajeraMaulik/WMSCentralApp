@@ -74,6 +74,9 @@ class InventoryTransactionActivity : AppCompatActivity() {
 
         itChangeLocation_Btn.setOnClickListener {
             Toast.makeText(this,"Change Location",Toast.LENGTH_LONG).show()
+            val i = Intent(this,ChangeLocationActivity::class.java)
+
+            startActivity(i)
         }
 
     }
@@ -85,7 +88,7 @@ class InventoryTransactionActivity : AppCompatActivity() {
             .inflate(R.layout.item_bottom_sheet_dialog,
                 findViewById<ConstraintLayout>(R.id.bottomsheet))
         view.setBackgroundColor(Color.TRANSPARENT)
-        view.findViewById<TextView>(R.id.bsd_Title).text = "LookUp Item"
+        view.findViewById<TextView>(R.id.bsd_Title).text = "LookUp item"
         view.findViewById<Button>(R.id.bsd_Single).text = "By Barcode"
         view.findViewById<Button>(R.id.bsd_Single).setOnClickListener {
             Toast.makeText(this, "By Barcode", Toast.LENGTH_SHORT).show()
@@ -129,23 +132,27 @@ class InventoryTransactionActivity : AppCompatActivity() {
             .inflate(R.layout.item_bottom_sheet_dialog,
                 findViewById<ConstraintLayout>(R.id.bottomsheet))
         view.setBackgroundColor(Color.TRANSPARENT)
-        view.findViewById<TextView>(R.id.bsd_Title).text = "LookUp Item"
+        view.findViewById<TextView>(R.id.bsd_Title).text = "LookUp item"
         view.findViewById<Button>(R.id.bsd_Single).text = "Invetory count"
         view.findViewById<Button>(R.id.bsd_Single).setOnClickListener {
             Toast.makeText(this, "Invetory count", Toast.LENGTH_SHORT).show()
+            val i = Intent(this,InventoryCountListActivity::class.java)
+
+            startActivity(i)
             dialog.dismiss()
         }
         view.findViewById<Button>(R.id.bsd_Inner).text = "Invetory recount"
         view.findViewById<Button>(R.id.bsd_Inner).setOnClickListener {
             Toast.makeText(this, "Invetory recount", Toast.LENGTH_SHORT).show()
+            val i = Intent(this,InventoryCountListActivity::class.java)
+
+            startActivity(i)
             dialog.dismiss()
         }
+
         view.findViewById<Button>(R.id.bsd_Master).visibility = View.GONE
         view.findViewById<View>(R.id.bsd_View2).visibility = View.GONE
-        view.findViewById<Button>(R.id.bsd_Master).setOnClickListener {
-            Toast.makeText(this, "Alpha", Toast.LENGTH_SHORT).show()
-            dialog.dismiss()
-        }
+
         view.findViewById<Button>(R.id.bsd_Cancel).setOnClickListener {
             Toast.makeText(this, "Cancel", Toast.LENGTH_SHORT).show()
             dialog.dismiss()

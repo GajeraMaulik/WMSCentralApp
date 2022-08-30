@@ -5,6 +5,7 @@ import android.app.Dialog
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -12,12 +13,14 @@ import android.util.Log.d
 import android.util.Log.i
 import android.view.Gravity
 import android.view.View
+import android.view.View.GONE
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.view.marginTop
 import com.example.wmscentralapp.LoginScreens.MainActivity
 import com.example.wmscentralapp.PackOderScreens.PackPickingActivity
 import com.example.wmscentralapp.PickingItemScreens.ManualTransferActivity
@@ -28,8 +31,10 @@ import kotlinx.android.synthetic.main.activity_inventory_transaction.*
 import kotlinx.android.synthetic.main.activity_items_scan_view.*
 
 class ItemsScanViewActivity : AppCompatActivity() {
-    var etPickId: EditText? = null
+     var etPickId: EditText? =null
     lateinit var dialog: Dialog
+    lateinit var tagno:String
+    lateinit var itemno:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_items_scan_view)
@@ -39,45 +44,77 @@ class ItemsScanViewActivity : AppCompatActivity() {
         actionBar.setDisplayHomeAsUpEnabled(true)
         window.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimary)
 
-
-
+        tagno = ""
+        itemno = ""
         val dialogBinding = layoutInflater.inflate(R.layout.item_dialog,null)
         dialog = Dialog(this)
         dialog.setContentView(dialogBinding)
+        etPickId =  dialog.findViewById(R.id.edOderNo)
 
         val title = intent.getStringExtra("ItemTitle")
         title_It_Scan.text = title
 
         back_ItScan_Btn.setOnClickListener {
+            tagno = SharePref.getStringValue(this,"TagNo").toString()
+            itemno = SharePref.getStringValue(this,"isItemNo").toString()
+
             d("backisv","-----> bbbbbbackk")
-            if (  isLItemView.visibility == View.GONE || isLFromBinView.visibility == View.GONE || title_It_Scan.text == "Issue"){
+            if (  isLItemView.visibility == GONE || isLFromBinView.visibility == GONE || title_It_Scan.text == "Issue"){
                 d("backisv","---if--> bbbbbbackk")
                 onBackPressed()
                 return@setOnClickListener
-            }else{
+            }else if (title_It_Scan.text == "Scan Count"){
+                val i = Intent(this, InventoryCountListActivity::class.java)
+                startActivity(i)
+                finish()
+                tagno = ""
+                itemno = ""
+            }
+            else{
                 d("backisv","---else--> bbbbbbackk")
                // onBackPressed()
-                isLItemView.visibility = View.GONE
-                isLFromBinView.visibility = View.GONE
+                isLItemView.visibility = GONE
+                isLFromBinView.visibility = GONE
                 return@setOnClickListener
             }
 
 
         }
 
-        list_ItScanLabel.setOnClickListener {
-            if (  isLItemView.visibility == View.GONE || isLFromBinView.visibility == View.GONE || itemNo_is.text == ""){
-                itemNoDialog()
 
-            }else if(title_It_Scan.text == "Transfer"){
-                fromBinDialog()
-            }else{
-                binNoDialog()
+        list_ItScanLabel.setOnClickListener {
+            when(title_It_Scan.text){
+                "Scan Count" -> {
+                    if( tagno == "") {
+                        tagNoDialog()
+
+                    }else if( itemno == ""){
+                        itemNoDialog()
+                    }else binNoDialog()
+                }
+               "Transfer" ->{
+                    fromBinDialog()
+                }
+                else -> binNoDialog()
             }
+
+          /*
+                if (  isLItemView.visibility == GONE || isLFromBinView.visibility == GONE || itemNo_is.text == ""){
+
+                    itemNoDialog()
+
+                }else if(title_It_Scan.text == "Transfer"){
+                    fromBinDialog()
+                }else
+                    binNoDialog()*/
+
         }
 
+
+
+
         isvManual_Btn.setOnClickListener {
-            if (  isLItemView.visibility == View.GONE || isLFromBinView.visibility == View.GONE || itemNo_is.text == ""){
+            if (  isLItemView.visibility == GONE || isLFromBinView.visibility == GONE || itemNo_is.text == ""){
                 itemNoDialog()
 
             }else if(title_It_Scan.text == "Transfer"){
@@ -93,6 +130,7 @@ class ItemsScanViewActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     fun itemNoDialog() {
 
+       // itemno = ""
         beforeChangeColor()
 
         val okbtn = dialog.findViewById<Button>(R.id.btnContinue)
@@ -112,10 +150,6 @@ class ItemsScanViewActivity : AppCompatActivity() {
         etPickId!!.visibility = View.VISIBLE
         title.visibility = View.VISIBLE
 
-        val itemno = etPickId!!.text.toString()
-
-        SharePref.save(this, "isItemNo", "$itemno")
-
 
         okbtn.text = "Ok"
         cancelbtn.text = "Cancel"
@@ -123,9 +157,12 @@ class ItemsScanViewActivity : AppCompatActivity() {
         okbtn.setOnClickListener {
             Log.d("oderpick", "------------>ok")
 
-
             if (etPickId!!.text.isNotEmpty()) {
                 dialog.dismiss()
+                 itemno = etPickId!!.text.toString()
+
+                SharePref.save(this, "isItemNo", "$itemno")
+
 
                 if(title_It_Scan.text == "PutWay"){
 
@@ -135,7 +172,10 @@ class ItemsScanViewActivity : AppCompatActivity() {
                     i.putExtra("aItemno","${etPickId!!.text}")
                     startActivity(i)
                     finish()
-                } else {
+                } else if(title_It_Scan.text == "Scan Count"){
+                    dialog.dismiss()
+                    afterChangeColor()
+                }else {
                     isLItemView.visibility = View.VISIBLE
                     isLFromBinView.visibility = View.VISIBLE
                     itemNo_is.setText(etPickId!!.text)
@@ -223,6 +263,9 @@ class ItemsScanViewActivity : AppCompatActivity() {
 
     fun binNoDialog() {
 
+      //  tagno =""
+
+
         isLItemView.visibility = View.VISIBLE
         isLFromBinView.visibility = View.VISIBLE
 
@@ -242,7 +285,7 @@ class ItemsScanViewActivity : AppCompatActivity() {
         title.setTextColor(Color.parseColor("#863B7B"))
         etPickId!!.visibility = View.VISIBLE
         title.visibility = View.VISIBLE
-        tag.visibility = View.GONE
+        tag.visibility = GONE
 
         val itemno = etPickId!!.text.toString()
 
@@ -286,9 +329,13 @@ class ItemsScanViewActivity : AppCompatActivity() {
                 isLItemView.visibility = View.VISIBLE
                 isLFromBinView.visibility = View.VISIBLE
             }
+            "Scan Count" ->{
+                isLItemView.visibility = View.VISIBLE
+                isLFromBinView.visibility = View.VISIBLE
+            }
             else -> {
-                isLItemView.visibility = View.GONE
-                isLFromBinView.visibility = View.GONE
+                isLItemView.visibility = GONE
+                isLFromBinView.visibility = GONE
 
             }
         }
@@ -311,10 +358,10 @@ class ItemsScanViewActivity : AppCompatActivity() {
         etPickId!!.visibility = View.VISIBLE
         title.visibility = View.VISIBLE
 
-        val itemno = etPickId!!.text.toString()
+  /*      val itemno = etPickId!!.text.toString()
 
         SharePref.save(this, "isItemNos", "$itemno")
-
+*/
 
         okbtn.text = "Ok"
         cancelbtn.text = "Cancel"
@@ -323,9 +370,16 @@ class ItemsScanViewActivity : AppCompatActivity() {
             Log.d("oderpick", "------------>ok")
 
 
-            if (etPickId!!.text.isNotEmpty()) {
+            if (etPickId.text.isNotEmpty()) {
                 dialog.dismiss()
-                commentDialog()
+                if (title_It_Scan.text == "Scan Count"){
+                    val i = Intent(this, InventoryCountListActivity::class.java)
+                    startActivity(i)
+                    finish()
+                }else{
+                    commentDialog()
+
+                }
 
             }else {
                 etPickId!!.error = "Empty Field"
@@ -346,8 +400,8 @@ class ItemsScanViewActivity : AppCompatActivity() {
 
     fun commentDialog() {
 
-        isLItemView.visibility = View.GONE
-        isLFromBinView.visibility = View.GONE
+        isLItemView.visibility = GONE
+        isLFromBinView.visibility = GONE
 
 
         val okbtn = dialog.findViewById<Button>(R.id.btnContinue)
@@ -408,6 +462,7 @@ class ItemsScanViewActivity : AppCompatActivity() {
         isLItemView.visibility = View.VISIBLE
         isLFromBinView.visibility = View.VISIBLE
         isLToBinno.visibility = View.VISIBLE
+        scanLabel_Is.top = 5
         beforeChangeColor()
 
         val dialog = Dialog(this)
@@ -442,6 +497,7 @@ class ItemsScanViewActivity : AppCompatActivity() {
                 val itemno = SharePref.getStringValue(this,"putwayItemNo")
                 itemNo_is.text = itemno
                 title.text= alert
+                testoder.text = tran
             }
 
         }
@@ -456,7 +512,7 @@ class ItemsScanViewActivity : AppCompatActivity() {
 
         testoder.gravity = Gravity.CENTER_HORIZONTAL
         testoder.visibility = View.VISIBLE
-        cancelbtn.visibility = View.GONE
+        cancelbtn.visibility = GONE
 
         val displayMetrics = resources.displayMetrics
         val width = displayMetrics.widthPixels
@@ -477,14 +533,14 @@ class ItemsScanViewActivity : AppCompatActivity() {
             dialog.dismiss()
 
             if(title_It_Scan.text == "PutWay") {
-                isLItemView.visibility = View.GONE
-                isLFromBinView.visibility = View.GONE
-                isLToBinno.visibility = View.GONE
+                isLItemView.visibility = GONE
+                isLFromBinView.visibility = GONE
+                isLToBinno.visibility = GONE
                 afterChangeColor()
             }else {
                 isLItemView.visibility = View.VISIBLE
                 isLFromBinView.visibility = View.VISIBLE
-                isLToBinno.visibility = View.GONE
+                isLToBinno.visibility = GONE
                 afterChangeColor()
             }
 
@@ -528,10 +584,81 @@ class ItemsScanViewActivity : AppCompatActivity() {
         finish()
     }
 
+    fun tagNoDialog() {
+
+       // tagno = ""
+        beforeChangeColor()
+
+        val okbtn = dialog.findViewById<Button>(R.id.btnContinue)
+        val cancelbtn = dialog.findViewById<Button>(R.id.btnNew)
+        val title = dialog.findViewById<TextView>(R.id.txt_pickorder_title)
+
+        etPickId = dialog.findViewById(R.id.edOderNo)
+
+
+
+
+        title.text = "TAG NO:"
+        title.isAllCaps = true
+        title.gravity = Gravity.RIGHT
+        title.right = 10
+        title.setTextColor(Color.parseColor("#863B7B"))
+        etPickId!!.visibility = View.VISIBLE
+        title.visibility = View.VISIBLE
+
+
+
+        okbtn.text = "Ok"
+        cancelbtn.text = "Cancel"
+
+        okbtn.setOnClickListener {
+            Log.d("oderpick", "------------>ok")
+
+
+            if (etPickId!!.text.isNotEmpty()) {
+                dialog.dismiss()
+                 tagno = etPickId!!.text.toString()
+
+                SharePref.save(this, "TagNo", "${tagno.toString()}")
+
+                afterChangeColor()
+
+
+            }else {
+                etPickId!!.error = "Empty Field"
+                Toast.makeText(this, "Empty Field", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        cancelbtn.setOnClickListener {
+
+                dialog.dismiss()
+                afterChangeColor()
+        }
+
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        dialog.show()
+        dialog.setCanceledOnTouchOutside(false)
+    }
     override fun onStart() {
         super.onStart()
         when(title_It_Scan.text){
             "Scan view" -> itemNoDialog()
+            "Scan Count" -> {
+                val scanTitle = intent.getStringExtra("scanTitle")
+                tvScan.text = scanTitle
+                isLItemNo.text = "TAG NO :"
+                isLScanBinno.text = "SCAN ORDER :"
+                isLToinno.text = "FROM BIN :"
+                isvManual_Btn.visibility = GONE
+                isLItemView.visibility = View.VISIBLE
+                isLFromBinView.visibility = View.VISIBLE
+                isLToBinno.visibility = View.VISIBLE
+                isLItemView.setBackgroundResource(R.drawable.countscan_bg)
+                isLFromBinView.setBackgroundResource(R.drawable.countscan1_bg)
+                isLToBinno.setBackgroundResource(R.drawable.countscan2_bg)
+            }
         }
 
     }

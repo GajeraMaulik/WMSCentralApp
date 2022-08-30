@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/count_List_Bg"
+
     tools:context=".InventoryTransactionScreens.InventoryCountListActivity">
 
     <RelativeLayout
@@ -52,10 +54,36 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvCountList"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="@dimen/_400sdp"
             android:layout_below="@+id/toolBar"
             tools:listitem="@layout/item_count"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        <Button
+            android:id="@+id/count_Btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rvCountList"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@drawable/fill_button_selector"
+            android:fontFamily="@font/open_sans"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Submit Count"
+
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@drawable/fill_button_text_selector"
+            android:textFontWeight="700"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            app:backgroundTint="@null"
+            tools:ignore="MissingConstraints" />
+
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
