@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import com.example.wmscentralapp.Clp.ReceiveContainerActivity
 import com.example.wmscentralapp.InventoryTransactionScreens.InventoryTransactionActivity
 import com.example.wmscentralapp.PackOderScreens.PickingItem.PickedItemActivity
 import com.example.wmscentralapp.PackOderScreens.PickingItem.ScanViewActivity
@@ -20,6 +21,7 @@ import com.example.wmscentralapp.PoRecevingScreens.PoScanNumberActivity
 import com.example.wmscentralapp.R
 import com.example.wmscentralapp.SharePref
 import kotlinx.android.synthetic.main.activity_po_scan_number.*
+import kotlinx.android.synthetic.main.activity_receive_container.*
 import kotlinx.android.synthetic.main.fragment_inventory.*
 
 class InventoryFragment : Fragment() {
@@ -53,6 +55,10 @@ class InventoryFragment : Fragment() {
 
         reciveContainer.setOnClickListener {
             Toast.makeText(context,"Recive Container",Toast.LENGTH_LONG).show()
+            val intent = Intent(context, ReceiveContainerActivity::class.java)
+            intent.putExtra("rctitle","Receive Container")
+            intent.putExtra("error","Your order id empty")
+            startActivity(intent)
         }
     }
     fun poDialog(){

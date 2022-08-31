@@ -26,7 +26,7 @@
             tools:ignore="ContentDescription,RtlHardcoded,RtlSymmetry" />
 
         <TextView
-            android:id="@+id/title_Packoder"
+            android:id="@+id/title_Rc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -50,7 +50,7 @@
             android:background="@drawable/et_rc_bg"
             android:gravity="center_vertical"
             android:paddingStart="@dimen/_10sdp"
-            android:text="1"
+            android:text=""
             android:textColor="@color/black"
             android:textFontWeight="600"
             android:textSize="@dimen/_15sdp"
@@ -62,7 +62,7 @@
         android:layout_height="@dimen/_40sdp"
         android:layout_alignTop="@+id/etOrder"
         android:layout_alignEnd="@+id/etOrder"
-        android:background="@drawable/fill_button_selector"
+        android:background="@drawable/fill_button_selector_wc"
         android:textColor="@drawable/fill_button_text_selector"
         android:gravity="center_vertical|center"
         app:backgroundTint="@null"
@@ -72,7 +72,7 @@
         app:layout_constraintTop_toTopOf="@+id/etOrder"
         tools:ignore="ContentDescription,RtlHardcoded,RtlSymmetry" />
 
-        <TextView
+  <!--      <TextView
             android:id="@+id/tvOrder"
             android:layout_width="@dimen/_260sdp"
             android:layout_height="@dimen/_40sdp"
@@ -80,7 +80,6 @@
             android:background="@color/receive"
             android:textColor="@color/black"
             android:gravity="center_vertical"
-            android:visibility="gone"
             android:textFontWeight="600"
             android:paddingStart="@dimen/_10sdp"
             android:text="1"
@@ -89,7 +88,22 @@
             android:layout_marginStart="@dimen/_25sdp"
             android:layout_marginEnd="@dimen/_25sdp"
             android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"/>
+            android:layout_alignParentEnd="true"/>-->
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSearchList"
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="wrap_content"
+            android:background="@color/receive"
+            android:layout_below="@+id/etOrder"
+            tools:listitem="@layout/item_search"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:ignore="MissingConstraints" />
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

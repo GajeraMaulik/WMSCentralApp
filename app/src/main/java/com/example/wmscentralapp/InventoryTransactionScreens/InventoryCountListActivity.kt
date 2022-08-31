@@ -58,7 +58,7 @@ class InventoryCountListActivity : AppCompatActivity() {
             .inflate(R.layout.item_bottom_sheet_dialog,
                 findViewById<ConstraintLayout>(R.id.bottomsheet))
         view.setBackgroundColor(Color.TRANSPARENT)
-        view.findViewById<TextView>(R.id.bsd_Title).text = "LookUp item"
+        view.findViewById<TextView>(R.id.bsd_Title).text = "Lookup item"
         view.findViewById<Button>(R.id.bsd_Single).text = "Count By Tag"
         view.findViewById<Button>(R.id.bsd_Single).setOnClickListener {
             Toast.makeText(this, "Count By Tag", Toast.LENGTH_SHORT).show()

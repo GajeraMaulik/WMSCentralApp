@@ -55,12 +55,27 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvLocationItem"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_200sdp"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginEnd="@dimen/_12sdp"
-            android:layout_marginTop="@dimen/_5sdp"
             tools:listitem="@layout/item_location"
+            android:layout_marginTop="@dimen/_5sdp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:layout_below="@+id/toolBar_Cl" />
+
+        <TextView
+            android:id="@+id/location_Cl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_35sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_below="@+id/rvLocationItem"
+            android:fontFamily="@font/open_sans"
+            android:text="X : DAMAGED GOOD"
+            android:textColor="@color/black"
+            android:textFontWeight="400"
+            android:textSize="@dimen/_18sdp"
+            android:textStyle="bold" />
+
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

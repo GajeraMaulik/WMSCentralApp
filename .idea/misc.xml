@@ -3,10 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/drawable/button_unseleted.xml" value="0.269" />
+        <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/drawable/button_unseleted_wc.xml" value="0.269" />
         <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/drawable/countscan1_bg.xml" value="0.269" />
         <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/drawable/countscan2_bg.xml" value="0.269" />
         <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/drawable/countscan_bg.xml" value="0.269" />
         <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/drawable/dialog_bg.xml" value="0.2645" />
+        <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/drawable/fill_button_saleted_wc.xml" value="0.269" />
+        <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/drawable/fill_button_selector.xml" value="0.269" />
+        <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/drawable/fill_button_selector_wc.xml" value="0.269" />
+        <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/drawable/fill_button_seleted.xml" value="0.269" />
         <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/drawable/ic_search_bg.xml" value="0.2645" />
         <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/drawable/ic_search_close.xml" value="0.2645" />
         <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/drawable/scanbin_bg.xml" value="0.269" />
@@ -16,6 +22,7 @@
         <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/drawable/swich_thumb_true.xml" value="0.2645" />
         <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/drawable/thumb.xml" value="0.2645" />
         <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/drawable/track.xml" value="0.2645" />
+        <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/layout-v28/item_search.xml" value="0.24322916666666666" />
         <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/layout/activity_alpha_scan_view.xml" value="0.3625" />
         <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/layout/activity_box_header_details.xml" value="0.3625" />
         <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/layout/activity_change_location.xml" value="0.3625" />
@@ -28,7 +35,9 @@
         <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/layout/activity_pack_available_item.xml" value="0.3625" />
         <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/layout/activity_pack_order.xml" value="0.3625" />
         <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/layout/activity_pick_item.xml" value="0.3625" />
+        <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/layout/activity_picked_item.xml" value="0.24427083333333333" />
         <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/layout/activity_picking_item_available.xml" value="0.3625" />
+        <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/layout/activity_receive_container.xml" value="0.3625" />
         <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/layout/activity_review_pick.xml" value="0.3625" />
         <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/layout/activity_scan_view.xml" value="0.3625" />
         <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/layout/activity_suggested_item.xml" value="0.19635416666666666" />
@@ -39,6 +48,7 @@
         <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/layout/item_dialog.xml" value="0.3625" />
         <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/layout/item_location.xml" value="0.3614583333333333" />
         <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/layout/item_review_pick.xml" value="0.3625" />
+        <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/layout/item_search.xml" value="0.20042735042735044" />
         <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/layout/items_lookup.xml" value="0.3614583333333333" />
         <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/Projects/WMSCentralApp/app/src/main/res/layout/items_pack_available.xml" value="0.3625" />
         <entry key="..\:/Users/shubh/OneDrive/Desktop/My drive/Maulik/WMSCentralApp/app/src/main/res/drawable-v24/button_selector.xml" value="0.337" />

@@ -88,7 +88,7 @@ class InventoryTransactionActivity : AppCompatActivity() {
             .inflate(R.layout.item_bottom_sheet_dialog,
                 findViewById<ConstraintLayout>(R.id.bottomsheet))
         view.setBackgroundColor(Color.TRANSPARENT)
-        view.findViewById<TextView>(R.id.bsd_Title).text = "LookUp item"
+        view.findViewById<TextView>(R.id.bsd_Title).text = "Lookup item"
         view.findViewById<Button>(R.id.bsd_Single).text = "By Barcode"
         view.findViewById<Button>(R.id.bsd_Single).setOnClickListener {
             Toast.makeText(this, "By Barcode", Toast.LENGTH_SHORT).show()
@@ -132,7 +132,7 @@ class InventoryTransactionActivity : AppCompatActivity() {
             .inflate(R.layout.item_bottom_sheet_dialog,
                 findViewById<ConstraintLayout>(R.id.bottomsheet))
         view.setBackgroundColor(Color.TRANSPARENT)
-        view.findViewById<TextView>(R.id.bsd_Title).text = "LookUp item"
+        view.findViewById<TextView>(R.id.bsd_Title).text = "Lookup item"
         view.findViewById<Button>(R.id.bsd_Single).text = "Invetory count"
         view.findViewById<Button>(R.id.bsd_Single).setOnClickListener {
             Toast.makeText(this, "Invetory count", Toast.LENGTH_SHORT).show()

@@ -1,8 +1,10 @@
 package com.example.wmscentralapp.Clp
 
 import android.R.attr.button
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
@@ -20,6 +22,7 @@ import kotlinx.android.synthetic.main.activity_receive_container.*
 
 class ReceiveContainerActivity : AppCompatActivity() {
     lateinit var dialog: Dialog
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_receive_container)
@@ -31,6 +34,10 @@ class ReceiveContainerActivity : AppCompatActivity() {
 
         dialog = Dialog(this)
 
+
+        val title = intent.getStringExtra("rctitle")
+        title_Rc.text = title
+
         back_Batches_Btn.setOnClickListener {
             onBackPressed()
             return@setOnClickListener
@@ -38,9 +45,18 @@ class ReceiveContainerActivity : AppCompatActivity() {
 
         btnEnter.setOnClickListener {
             if (etOrder.text.isEmpty()){
+                if (title_Rc.text == "Your Batches"){
+                       title_Rc.text = "Receive Container"
+                }
                 emptyOder()
                 Toast.makeText(this,"Oder is Empty", Toast.LENGTH_LONG).show()
-            }else{
+            }else if(etOrder.text.isEmpty() || title_Rc.text == "Your Batches"){
+                    title_Rc.text = "Receive Container"
+                    notemptyDialog()
+            }else if(title_Rc.text == "Receive Container"){
+                    title_Rc.text = "Your Batches"
+                    notemptyDialog()
+            }else {
                 notemptyDialog()
                 Toast.makeText(this,"Oder is ${etOrder.text}", Toast.LENGTH_LONG).show()
             }
@@ -68,8 +84,8 @@ class ReceiveContainerActivity : AppCompatActivity() {
         title.textSize = 15F
         title.setTextColor(Color.parseColor("#863B7B"))
 
-
-        testoder.text = "Order is Empty"
+        val errortitle = intent.getStringExtra("error")
+        testoder.text = errortitle
 
         testoder.gravity = Gravity.CENTER
         testoder.visibility = View.VISIBLE
@@ -86,7 +102,7 @@ class ReceiveContainerActivity : AppCompatActivity() {
         val params: ViewGroup.LayoutParams = okbtn.getLayoutParams()
         params.height = height / 15 // 10%
 
-        params.width = width * 70 / 100 // 20%
+        params.width = width * 65 / 100 // 20%
 
         okbtn.setLayoutParams(params)
 
@@ -96,11 +112,12 @@ class ReceiveContainerActivity : AppCompatActivity() {
         }
 
 
-
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.show()
         dialog.setCanceledOnTouchOutside(false)
     }
 
+    @SuppressLint("SetTextI18n")
     fun notemptyDialog(){
 
         //set title for alert dialog
@@ -120,16 +137,24 @@ class ReceiveContainerActivity : AppCompatActivity() {
         title.textSize = 15F
         title.setTextColor(Color.parseColor("#863B7B"))
 
+        val confimation_msg = intent.getStringExtra("confimation")
 
-        testoder.text = "Not all item picked submit as is or\n" +
-                "go back and abjust the order."
+        if (title_Rc.text == "Your Batches"){
+            testoder.text = "Receiving 3 PO Lines on\n " +"container : ${etOrder.text}"
+        }else{
+            testoder.text = confimation_msg
+        }
+
+
+
+       // testoder.text = confimation_msg
 
         testoder.gravity = Gravity.CENTER
         testoder.visibility = View.VISIBLE
         cancelbtn.visibility = View.VISIBLE
-        tvOrder.visibility = View.VISIBLE
+        rvSearchList.visibility = View.VISIBLE
 
-        tvOrder.setText(etOrder.text)
+  //      rvSearchList.setText(etOrder.text)
 //        pickingItems.visibility = View.VISIBLE
 
         okbtn.text = "Cancel"
@@ -139,14 +164,14 @@ class ReceiveContainerActivity : AppCompatActivity() {
 
         okbtn.setOnClickListener {
             dialog.dismiss()
-            tvOrder.visibility = View.GONE
+            rvSearchList.visibility = View.GONE
         }
         cancelbtn.setOnClickListener {
            dialog.dismiss()
             messageOder()
         }
 
-
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.show()
         dialog.setCanceledOnTouchOutside(false)
     }
@@ -176,8 +201,8 @@ class ReceiveContainerActivity : AppCompatActivity() {
         testoder.gravity = Gravity.CENTER
         testoder.visibility = View.VISIBLE
         cancelbtn.visibility = View.GONE
-        tvOrder.visibility = View.VISIBLE
-        tvOrder.setText(etOrder.text)
+        rvSearchList.visibility = View.VISIBLE
+      //  rvSearchList.setText(etOrder.text)
 //        pickingItems.visibility = View.VISIBLE
 
         okbtn.text = "Ok"
@@ -188,17 +213,17 @@ class ReceiveContainerActivity : AppCompatActivity() {
         val params: ViewGroup.LayoutParams = okbtn.getLayoutParams()
         params.height = height / 15 // 10%
 
-        params.width = width * 70 / 100 // 20%
+        params.width = width * 65 / 100 // 20%
 
         okbtn.setLayoutParams(params)
 
         okbtn.setOnClickListener {
             dialog.dismiss()
-            tvOrder.visibility = View.GONE
+            rvSearchList.visibility = View.GONE
         }
 
 
-
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.show()
         dialog.setCanceledOnTouchOutside(false)
     }

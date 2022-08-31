@@ -63,7 +63,9 @@ class OrderProcessingFragment : Fragment() {
 
         labelPrinting.setOnClickListener {
             val intent = Intent(context, ReceiveContainerActivity::class.java)
-
+            intent.putExtra("rctitle","Your Recive Container")
+            intent.putExtra("error","Order is Empty")
+            intent.putExtra("confimation","Not all item picked submit as is or \n" +"go back and abjust the order.")
             // intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
             Toast.makeText(context,"Costomer Printing",Toast.LENGTH_LONG).show()
