@@ -1,27 +1,34 @@
 package com.example.wmscentralapp.Clp
 
-import android.R.attr.button
 import android.annotation.SuppressLint
 import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.example.wmscentralapp.Adapter.SearchListAdapter
+import com.example.wmscentralapp.Model.SearchData
 import com.example.wmscentralapp.R
-import kotlinx.android.synthetic.main.activity_batches.*
 import kotlinx.android.synthetic.main.activity_batches.back_Batches_Btn
 import kotlinx.android.synthetic.main.activity_receive_container.*
 
 
 class ReceiveContainerActivity : AppCompatActivity() {
     lateinit var dialog: Dialog
+    lateinit var searchAdapter: SearchListAdapter
+    var arrayAdapter: ArrayAdapter<String>? = null
+    var searchList : ArrayList<String> = ArrayList()
+
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +50,7 @@ class ReceiveContainerActivity : AppCompatActivity() {
             return@setOnClickListener
         }
 
+
         btnEnter.setOnClickListener {
             if (etOrder.text.isEmpty()){
                 if (title_Rc.text == "Your Batches"){
@@ -51,16 +59,27 @@ class ReceiveContainerActivity : AppCompatActivity() {
                 emptyOder()
                 Toast.makeText(this,"Oder is Empty", Toast.LENGTH_LONG).show()
             }else if(etOrder.text.isEmpty() || title_Rc.text == "Your Batches"){
-                    title_Rc.text = "Receive Container"
+                   // title_Rc.text = "Receive Container"
                     notemptyDialog()
             }else if(title_Rc.text == "Receive Container"){
+                    searchList.distinct()
+                     searchList.add(etOrder.text.toString())
                     title_Rc.text = "Your Batches"
-                    notemptyDialog()
+
+                notemptyDialog()
             }else {
+                searchList.distinct()
+                searchList.add(etOrder.text.toString())
+
                 notemptyDialog()
                 Toast.makeText(this,"Oder is ${etOrder.text}", Toast.LENGTH_LONG).show()
             }
         }
+
+        val add = searchList.distinct()
+        arrayAdapter = ArrayAdapter(this,android.R.layout.simple_list_item_1,add)
+        rvSearchList.adapter = arrayAdapter
+
 
 
     }
@@ -120,6 +139,9 @@ class ReceiveContainerActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     fun notemptyDialog(){
 
+
+        rvSearchList.visibility = View.VISIBLE
+
         //set title for alert dialog
         dialog.setTitle("Notes")
 
@@ -152,7 +174,6 @@ class ReceiveContainerActivity : AppCompatActivity() {
         testoder.gravity = Gravity.CENTER
         testoder.visibility = View.VISIBLE
         cancelbtn.visibility = View.VISIBLE
-        rvSearchList.visibility = View.VISIBLE
 
   //      rvSearchList.setText(etOrder.text)
 //        pickingItems.visibility = View.VISIBLE
@@ -163,12 +184,15 @@ class ReceiveContainerActivity : AppCompatActivity() {
 
 
         okbtn.setOnClickListener {
-            dialog.dismiss()
             rvSearchList.visibility = View.GONE
+
+            dialog.dismiss()
         }
         cancelbtn.setOnClickListener {
-           dialog.dismiss()
+            dialog.dismiss()
+
             messageOder()
+
         }
 
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
@@ -177,6 +201,10 @@ class ReceiveContainerActivity : AppCompatActivity() {
     }
 
     fun messageOder(){
+
+
+        rvSearchList.visibility = View.VISIBLE
+
 
         //set title for alert dialog
         dialog.setTitle("Notes")
@@ -201,7 +229,6 @@ class ReceiveContainerActivity : AppCompatActivity() {
         testoder.gravity = Gravity.CENTER
         testoder.visibility = View.VISIBLE
         cancelbtn.visibility = View.GONE
-        rvSearchList.visibility = View.VISIBLE
       //  rvSearchList.setText(etOrder.text)
 //        pickingItems.visibility = View.VISIBLE
 
@@ -219,7 +246,7 @@ class ReceiveContainerActivity : AppCompatActivity() {
 
         okbtn.setOnClickListener {
             dialog.dismiss()
-            rvSearchList.visibility = View.GONE
+           rvSearchList.visibility = View.GONE
         }
 
 
