@@ -5,8 +5,7 @@ import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
+import android.util.Log.d
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
@@ -16,16 +15,15 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.example.wmscentralapp.Adapter.SearchListAdapter
-import com.example.wmscentralapp.Model.SearchData
 import com.example.wmscentralapp.R
 import kotlinx.android.synthetic.main.activity_batches.back_Batches_Btn
 import kotlinx.android.synthetic.main.activity_receive_container.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class ReceiveContainerActivity : AppCompatActivity() {
     lateinit var dialog: Dialog
-    lateinit var searchAdapter: SearchListAdapter
     var arrayAdapter: ArrayAdapter<String>? = null
     var searchList : ArrayList<String> = ArrayList()
 
@@ -49,7 +47,9 @@ class ReceiveContainerActivity : AppCompatActivity() {
             onBackPressed()
             return@setOnClickListener
         }
-
+        if (searchList.isEmpty()){
+            rvSearchList.visibility = View.GONE
+        }
 
         btnEnter.setOnClickListener {
             if (etOrder.text.isEmpty()){
@@ -60,27 +60,60 @@ class ReceiveContainerActivity : AppCompatActivity() {
                 Toast.makeText(this,"Oder is Empty", Toast.LENGTH_LONG).show()
             }else if(etOrder.text.isEmpty() || title_Rc.text == "Your Batches"){
                    // title_Rc.text = "Receive Container"
-                    notemptyDialog()
+                checkArray()
+
+                notemptyDialog()
             }else if(title_Rc.text == "Receive Container"){
-                    searchList.distinct()
-                     searchList.add(etOrder.text.toString())
+
                     title_Rc.text = "Your Batches"
+                if (searchList.isEmpty()){
+                    rvSearchList.visibility = View.GONE
+                }else {
+                    rvSearchList.visibility = View.VISIBLE
+                }
+               // searchList.add(0,etOrder.text.toString())
+                checkArray()
 
                 notemptyDialog()
             }else {
-                searchList.distinct()
-                searchList.add(etOrder.text.toString())
+                if (searchList.isEmpty()){
+                    rvSearchList.visibility = View.GONE
+                }else {
+                    rvSearchList.visibility = View.VISIBLE
+                }
+               // searchList.add(0,etOrder.text.toString())
+                checkArray()
 
                 notemptyDialog()
                 Toast.makeText(this,"Oder is ${etOrder.text}", Toast.LENGTH_LONG).show()
             }
         }
 
-        val add = searchList.distinct()
-        arrayAdapter = ArrayAdapter(this,android.R.layout.simple_list_item_1,add)
+
+        searchList.distinct()
+        arrayAdapter = ArrayAdapter(this,android.R.layout.simple_list_item_1,searchList)
         rvSearchList.adapter = arrayAdapter
 
 
+
+    }
+    fun checkArray(){
+        val array = arrayOf(searchList)
+
+        d("searchlist","-->${array.toString()}")
+        val toFind = etOrder.text
+        val find = toFind
+        d("searchlist","-tofind->${toFind.toString()}")
+        val found = Arrays.stream(array).anyMatch{t -> t == find}
+        d("searchlist","-found->$found")
+        if (found != false){
+            searchList.remove(toFind.toString())
+            println("$toFind is found.")
+        }else{
+            searchList.add(0,etOrder.text.toString())
+
+            println("$toFind is not found.")
+        }
 
     }
 
@@ -139,9 +172,11 @@ class ReceiveContainerActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     fun notemptyDialog(){
 
-
-        rvSearchList.visibility = View.VISIBLE
-
+        if (searchList.isEmpty()){
+            rvSearchList.visibility = View.GONE
+        }else {
+            rvSearchList.visibility = View.VISIBLE
+        }
         //set title for alert dialog
         dialog.setTitle("Notes")
 
@@ -203,9 +238,11 @@ class ReceiveContainerActivity : AppCompatActivity() {
     fun messageOder(){
 
 
-        rvSearchList.visibility = View.VISIBLE
-
-
+        if (searchList!!.isEmpty()){
+            rvSearchList.visibility = View.GONE
+        }else {
+            rvSearchList.visibility = View.VISIBLE
+        }
         //set title for alert dialog
         dialog.setTitle("Notes")
 

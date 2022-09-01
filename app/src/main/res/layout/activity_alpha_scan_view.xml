@@ -52,24 +52,26 @@
                 android:textStyle="bold" />-->
         </androidx.appcompat.widget.Toolbar>
 
-        <AutoCompleteTextView
+        <EditText
             android:id="@+id/searchBar"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_35sdp"
             android:layout_below="@+id/toolBar_Asv"
+            android:layout_marginStart="@dimen/_20sdp"
+
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:background="@drawable/search_bg"
+            android:drawableStart="@drawable/ic_search_bg"
+            android:drawablePadding="@dimen/_5sdp"
+            android:focusedByDefault="true"
+            android:hint="Search"
+            android:iconifiedByDefault="false"
+            android:imeOptions="actionSearch"
+            android:inputType="textAutoComplete"
             android:paddingStart="@dimen/_10sdp"
             android:paddingEnd="@dimen/_10sdp"
-            android:drawablePadding="@dimen/_5sdp"
-            android:layout_marginStart="@dimen/_20sdp"
-            android:layout_marginEnd="@dimen/_20sdp"
-            android:drawableStart="@drawable/ic_search_bg"
-            android:layout_marginTop="16dp"
-            android:inputType="textAutoComplete"
-            android:background="@drawable/search_bg"
-            android:focusedByDefault="true"
-            android:iconifiedByDefault="false"
             android:pointerIcon="crosshair"
-            android:hint="Search"
             android:theme="@style/Widget.AppCompat.SearchView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -80,6 +82,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/searchBar"
+            android:visibility="gone"
             android:layout_alignEnd="@+id/searchBar"
             android:layout_marginEnd="@dimen/_10sdp"
             android:layout_alignBottom="@+id/searchBar"
@@ -92,7 +95,7 @@
             android:layout_below="@+id/searchBar"
             android:paddingStart="@dimen/_10sdp"
             android:background="@drawable/search_bg_list"
-            android:text=""
+            android:text="A"
             android:textColor="@color/black"
             android:textAllCaps="true"
             android:textStyle="bold"
@@ -111,5 +114,23 @@
             tools:listitem="@layout/items_lookup"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:layout_below="@+id/characterLabal" />
+        <TextView
+            android:id="@+id/no_search_results_found_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:visibility="gone"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:textAlignment="center"
+            android:layout_below="@+id/characterLabal"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:text="No Results Found"
+            android:textAppearance="?attr/textAppearanceHeadline4"
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+           />
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
