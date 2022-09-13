@@ -1,21 +1,25 @@
 package com.example.wmscentralapp.InventoryTransactionScreens
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Log.d
 import android.view.View
 import android.widget.EditText
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doOnTextChanged
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wmscentralapp.Adapter.AlphaScanAdapter
 import com.example.wmscentralapp.Model.AlphaScanData
+import com.example.wmscentralapp.Common.Common
+import com.example.wmscentralapp.Common.Common.RESULT_CODE
+import com.example.wmscentralapp.Common.Common.prepareItemData
+import com.example.wmscentralapp.Common.LinearLayoutManagerWithSmoothScroll
 import com.example.wmscentralapp.R
 import kotlinx.android.synthetic.main.activity_alpha_scan_view.*
-import kotlinx.android.synthetic.main.activity_picking_item_available.*
-import kotlinx.android.synthetic.main.activity_receive_container.*
 import java.util.*
 
 
@@ -23,6 +27,7 @@ class AlphaScanViewActivity : AppCompatActivity() {
 
     var itemList: ArrayList<AlphaScanData> = ArrayList()
     lateinit var adapter: AlphaScanAdapter
+    lateinit var linearLayout: LinearLayoutManager
     var data = AlphaScanData()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +37,24 @@ class AlphaScanViewActivity : AppCompatActivity() {
         actionBar!!.hide()
         actionBar.setDisplayHomeAsUpEnabled(true)
         window.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimary)
+
+
+
+        //linearLayout = LinearLayoutManagerWithSmoothScroll(this)
+      //  rvAlphaListItem.layoutManager = linearLayout
+      //  rvAlphaListItem.addItemDecoration(DividerItemDecoration(this,linearLayout.orientation))
+
+        creatList()
+
+        adapter = AlphaScanAdapter(this,itemList)
+        rvAlphaListItem.adapter = adapter
+        prepareItemData()
+
+
+
+        attachAdapter(itemList)
+
+
 
         back_AlphaScan_Btn.setOnClickListener {
 
@@ -53,11 +76,7 @@ class AlphaScanViewActivity : AppCompatActivity() {
 
 
         val srsearchBar=findViewById<EditText>(R.id.searchBar)
-        if (srsearchBar.text.isNotEmpty()){
-            searchBar_Close.visibility = View.VISIBLE
-        }else{
-            searchBar_Close.visibility = View.GONE
-        }
+
 
         searchBar_Close.setOnClickListener {
             srsearchBar.text.clear()
@@ -65,58 +84,51 @@ class AlphaScanViewActivity : AppCompatActivity() {
         }
 
         srsearchBar.doOnTextChanged { text, _, _, _ ->
-            val array = arrayOf(itemList)
 
             val query= text.toString().toLowerCase(Locale.getDefault())
 
-
-            val find = query
-            val found = Arrays.stream(array).anyMatch{t -> t == text}
             if (query != ""){
+                searchBar_Close.visibility = View.VISIBLE
                 filterWithQuery(query)
 
             }else{
                 attachAdapter(itemList)
+                rvAlphaListItem.visibility = View.VISIBLE
+                searchBar_Close.visibility = View.GONE
                 no_search_results_found_text.visibility = View.GONE
             }
 
         }
 
-
-
-        attachAdapter(itemList)
-        prepareItemData()
-
         d("itemlist","--after attach ${itemList.toString()}")
         d("itemlist","--after attach onsize ${itemList.size}")
     }
 
-/*    fun addTextListener() {
-        searchBar.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable) {}
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(query: CharSequence, start: Int, before: Int, count: Int) {
-                var query = query
-                query = query.toString().lowercase(Locale.getDefault())
-                val filteredList: MutableList<AlphaScanData> = ArrayList()
-                for (i in 0 until itemList.size) {
-                    val text: kotlin.String = itemList.get(i).toString().toLowerCase()
-                    if (text.contains(query)) {
-                        filteredList.add(itemList.get(i))
-                    }
-                }
-                attachAdapter(itemList)
-                //prepareItemData()
+    fun creatList(){
+        itemList = Common.prepareItemData()
+        itemList = Common.sorList(itemList)
+        itemList = Common.addAlphabets(itemList)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == RESULT_CODE){
+            if (resultCode == Activity.RESULT_OK){
+                val character :String? = data?.getStringExtra("result")
+                val position:Int = Common.findPositionWithName(character!!,itemList)
+                rvAlphaListItem.smoothScrollToPosition(position)
             }
-        })
-    }*/
+        }
+    }
 
      fun attachAdapter(itemList: ArrayList<AlphaScanData>) {
         adapter = AlphaScanAdapter(this,itemList)
+         linearLayout = LinearLayoutManagerWithSmoothScroll(this)
+         rvAlphaListItem.layoutManager = linearLayout
+         rvAlphaListItem.addItemDecoration(DividerItemDecoration(this,linearLayout.orientation))
         rvAlphaListItem.adapter = adapter
 
-    }
-
+     }
 
     private fun filterWithQuery(query: kotlin.String) {
         if (query.isNotEmpty()) {
@@ -124,13 +136,20 @@ class AlphaScanViewActivity : AppCompatActivity() {
             d("itemlist","--filter ${filteredList.toString()}")
             d("itemlist","--filter size ${filteredList.size}")
 
-            attachAdapter(filteredList)
-            toggleRecyclerView(itemList)
+            if (filteredList.isEmpty()){
+                if (query.isEmpty()){
+                    rvAlphaListItem.visibility = View.VISIBLE
+                    no_search_results_found_text.visibility = View.GONE
+                }else{
+                    rvAlphaListItem.visibility = View.GONE
+                    no_search_results_found_text.visibility = View.VISIBLE
+                }
 
-        } else if (query.isEmpty()) {
-            attachAdapter(itemList)
+            }else if (filteredList.isNotEmpty()){
+                attachAdapter(filteredList)
+                toggleRecyclerView(itemList)
 
-        //    adapter.filterList(itemList)
+            }
         }
     }
 
@@ -151,38 +170,14 @@ class AlphaScanViewActivity : AppCompatActivity() {
 
 
     private fun toggleRecyclerView( itemList: ArrayList<AlphaScanData> ) {
-        if (itemList.isEmpty() || searchBar.text.isEmpty() ) {
+        if (itemList.isEmpty()) {
             rvAlphaListItem.visibility = View.INVISIBLE
-            no_search_results_found_text.visibility = View.GONE
-        } else if(itemList.isNotEmpty() ||searchBar.text.isEmpty()){
+            no_search_results_found_text.visibility = View.VISIBLE
+        } else {
             rvAlphaListItem.visibility = View.VISIBLE
             no_search_results_found_text.visibility = View.GONE
-        }else{
-            rvAlphaListItem.visibility = View.VISIBLE
-            no_search_results_found_text.visibility = View.INVISIBLE
         }
     }
 
-    private fun prepareItemData() {
-        var piaData = AlphaScanData("A5080","H RUSTIC DOTS")
-        itemList.add(piaData)
 
-        piaData = AlphaScanData("B5081","H RUSTIC DOTS")
-        itemList.add(piaData)
-
-
-        piaData = AlphaScanData("C5082","H RUSTIC DOTS")
-        itemList.add(piaData)
-
-        piaData = AlphaScanData("D5084","H RUSTIC DOTS")
-        itemList.add(piaData)
-
-        piaData = AlphaScanData("E5084","H RUSTIC DOTS")
-        itemList.add(piaData)
-        piaData = AlphaScanData("F5084","H RUSTIC DOTS")
-        itemList.add(piaData)
-
-        adapter.notifyDataSetChanged()
-
-    }
 }

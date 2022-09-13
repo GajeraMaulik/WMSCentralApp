@@ -10,7 +10,12 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+    /*    maven {
+            url 'http://dl.bintry.com/amulyakhare/maven'
+        }*/
     }
+
 }
+
 rootProject.name = "WMS Central App"
 include ':app'

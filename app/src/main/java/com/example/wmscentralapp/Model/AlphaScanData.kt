@@ -2,9 +2,9 @@ package com.example.wmscentralapp.Model
 
 class AlphaScanData {
 
-    lateinit var itemno :String
+     lateinit var itemno :String
     lateinit var itemname :String
-    var type : Int = 0
+    var viewtype : Int = 0
     constructor()
 
     constructor(itemno:String,itemname:String){
@@ -23,8 +23,8 @@ class AlphaScanData {
     }
 
     @JvmName("setItemno1")
-    fun setItemno(itemno:String){
-        this.itemno = itemno
+    fun setItemno(itemno: Char){
+        this.itemno = itemno.toString()
     }
     @JvmName("getItemno1")
     fun getItemno():String{
@@ -33,11 +33,11 @@ class AlphaScanData {
 
     @JvmName("setType1")
     fun setType(type: Int){
-        this.type = type
+        this.viewtype = type
     }
 
     @JvmName("getType1")
     fun getType():Int{
-        return type
+        return viewtype
     }
 }
