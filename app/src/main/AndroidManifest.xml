@@ -25,6 +25,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="32">
         <activity
+            android:name=".PickingItemScreens.PickingOrderDetailBinActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PickingItemScreens.PickingOrderDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".InventoryTransactionScreens.ChangeLocationActivity"
             android:exported="false" />
         <activity
@@ -121,9 +127,6 @@
             android:name=".PackOderScreens.PackOrderScanActivity"
             android:exported="false" />
         <activity
-            android:name=".PackOderScreens.PickingItem.PickingOrderDetailsActivity"
-            android:exported="false" />
-        <activity
             android:name=".PackOderScreens.PickingItem.PickOderItemActivity"
             android:exported="false" />
         <activity
@@ -134,24 +137,25 @@
             android:exported="false" />
         <activity
             android:name=".LoginScreens.LoginActivity"
-            android:exported="false" />
+            android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity
             android:name=".LoginScreens.MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"
-            android:value="true"/>
+            android:value="true" />
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
-
     </application>
 
 </manifest>

@@ -41,8 +41,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_marginEnd="@dimen/_20sdp"
-                android:clickable="true"
-                android:focusable="true"
                 android:text="List"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_15sdp"

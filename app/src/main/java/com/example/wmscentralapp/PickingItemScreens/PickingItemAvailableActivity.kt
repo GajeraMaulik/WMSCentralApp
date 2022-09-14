@@ -12,6 +12,7 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationSet
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
@@ -19,14 +20,16 @@ import com.example.wmscentralapp.Adapter.PIAAdapter
 import com.example.wmscentralapp.Model.PIAData
 import com.example.wmscentralapp.R
 import com.example.wmscentralapp.SharePref
+import com.example.wmscentralapp.databinding.ItemPickingAvailableBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.activity_picking_item_available.*
+import kotlinx.android.synthetic.main.item_dialog.*
 
 class PickingItemAvailableActivity : AppCompatActivity() {
 
      var itemAvailableList: ArrayList<PIAData> = ArrayList()
     lateinit var adapter:PIAAdapter
-    lateinit var binding: com.example.wmscentralapp.databinding.ItemPickingAvailableBinding
+    lateinit var binding: ItemPickingAvailableBinding
     var etPickId: EditText? = null
     lateinit var dialog: Dialog
 
@@ -72,12 +75,14 @@ class PickingItemAvailableActivity : AppCompatActivity() {
     }
 
     private fun setupBottomSheetDialog() {
+      //  setStyle(BottomSheetDialogFragment.STYLE_NORMAL, R.style.CustomBottomSheetDialogTheme);
         val dialog = BottomSheetDialog(this)
         dialog.setCanceledOnTouchOutside(false)
         val view = LayoutInflater.from(this)
             .inflate(R.layout.item_bottom_sheet_dialog,
                 findViewById<ConstraintLayout>(R.id.bottomsheet))
-        view.setBackgroundColor(Color.TRANSPARENT)
+
+   //     view.setBackgroundColor(Color.parseColor("#B1000000"))
         view.findViewById<Button>(R.id.bsd_Single).setOnClickListener {
             Toast.makeText(this, "Single", Toast.LENGTH_SHORT).show()
             dialog.dismiss()
@@ -96,12 +101,12 @@ class PickingItemAvailableActivity : AppCompatActivity() {
         view.findViewById<Button>(R.id.bsd_Cancel).setOnClickListener {
             Toast.makeText(this, "Cancel", Toast.LENGTH_SHORT).show()
             dialog.dismiss()
-            Dialog()
         }
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.setCancelable(false)
         dialog.setCanceledOnTouchOutside(false)
         dialog.setContentView(view)
+
         dialog.show()
 
     }
@@ -114,7 +119,8 @@ class PickingItemAvailableActivity : AppCompatActivity() {
         val okbtn = dialog.findViewById<Button>(R.id.btnContinue)
         val cancelbtn = dialog.findViewById<Button>(R.id.btnNew)
         val title = dialog.findViewById<TextView>(R.id.txt_pickorder_title)
-
+        val oneBtnView = dialog.findViewById<LinearLayout>(R.id.oneBtnView)
+        val twoBtnView = dialog.findViewById<LinearLayout>(R.id.twoBtnView)
         etPickId = dialog.findViewById(R.id.edOderNo)
 
 
@@ -123,6 +129,10 @@ class PickingItemAvailableActivity : AppCompatActivity() {
         title.gravity = Gravity.LEFT
         title.right = 10
         etPickId!!.visibility = View.VISIBLE
+
+        oneBtnView.visibility = View.GONE
+        twoBtnView.visibility = View.VISIBLE
+
 
         SharePref.save(this,"qty","${etPickId!!.text}")
 
@@ -163,11 +173,11 @@ class PickingItemAvailableActivity : AppCompatActivity() {
         //set message for alert dialog
         dialog.setContentView(R.layout.item_dialog)
 
-        val okbtn = dialog.findViewById<Button>(R.id.btnContinue)
-        val cancelbtn = dialog.findViewById<Button>(R.id.btnNew)
+        val okbtn = dialog.findViewById<Button>(R.id.btnOk)
         val title = dialog.findViewById<TextView>(R.id.txt_pickorder_title)
         val testoder = dialog.findViewById<TextView>(R.id.pickingItems)
-
+        val oneBtnView = dialog.findViewById<LinearLayout>(R.id.oneBtnView)
+        val twoBtnView = dialog.findViewById<LinearLayout>(R.id.twoBtnView)
         title.text = "Submit"
         title.textSize = 15F
         title.setTextColor(Color.parseColor("#863B7B"))
@@ -175,23 +185,9 @@ class PickingItemAvailableActivity : AppCompatActivity() {
 
         testoder.text = "Request lebal to submit printer"
         testoder.visibility = View.VISIBLE
-        cancelbtn.visibility = View.GONE
 
-//        pickingItems.visibility = View.VISIBLE
-
-        okbtn.text = "Ok"
-        okbtn.gravity = Gravity.CENTER
-
-        val displayMetrics = resources.displayMetrics
-        val width = displayMetrics.widthPixels
-        val height = displayMetrics.heightPixels
-        val params: ViewGroup.LayoutParams = okbtn.getLayoutParams()
-        params.height = height / 15 // 10%
-
-        params.width = width * 50 / 100 // 20%
-
-        okbtn.setLayoutParams(params)
-
+        twoBtnView.visibility = View.GONE
+        oneBtnView.visibility = View.VISIBLE
 
         okbtn.setOnClickListener {
             dialog.dismiss()
@@ -215,11 +211,11 @@ class PickingItemAvailableActivity : AppCompatActivity() {
         //set message for alert dialog
         dialog.setContentView(R.layout.item_dialog)
 
-        val okbtn = dialog.findViewById<Button>(R.id.btnContinue)
-        val cancelbtn = dialog.findViewById<Button>(R.id.btnNew)
+        val okbtn = dialog.findViewById<Button>(R.id.btnOk)
         val title =dialog.findViewById<TextView>(R.id.txt_pickorder_title)
         val testoder = dialog.findViewById<TextView>(R.id.pickingItems)
-
+        val oneBtnView = dialog.findViewById<LinearLayout>(R.id.oneBtnView)
+        val twoBtnView = dialog.findViewById<LinearLayout>(R.id.twoBtnView)
         title.text = "Alert"
 
         title.text
@@ -232,22 +228,8 @@ class PickingItemAvailableActivity : AppCompatActivity() {
 
         testoder.gravity = Gravity.CENTER_HORIZONTAL
         testoder.visibility = View.VISIBLE
-        cancelbtn.visibility = View.GONE
-
-//        pickingItems.visibility = View.VISIBLE
-
-        okbtn.text = "Ok"
-        okbtn.gravity = Gravity.CENTER
-
-        val displayMetrics = resources.displayMetrics
-        val width = displayMetrics.widthPixels
-        val height = displayMetrics.heightPixels
-        val params: ViewGroup.LayoutParams = okbtn.getLayoutParams()
-        params.height = height / 15 // 10%
-
-        params.width = width * 50 / 100 // 20%
-
-        okbtn.setLayoutParams(params)
+        oneBtnView.visibility = View.VISIBLE
+        twoBtnView.visibility = View.GONE
 
 
         okbtn.setOnClickListener {

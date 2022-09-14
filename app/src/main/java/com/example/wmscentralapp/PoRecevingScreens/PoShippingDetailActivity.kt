@@ -18,14 +18,12 @@ class PoShippingDetailActivity : AppCompatActivity() {
 
 
         back_posd_Btn.setOnClickListener {
-            onBackPressed()
-            return@setOnClickListener
+            finish()
         }
 
 
         poReceivingSaveLabel.setOnClickListener {
-            onBackPressed()
-            return@setOnClickListener
+         finish()
         }
 
     }

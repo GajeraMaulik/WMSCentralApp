@@ -43,7 +43,8 @@ class MainActivity : AppCompatActivity() {
         window.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimary)
         tabLayout = TabLayout(this)
 
-        val username = SharePref.getStringValue(this, "username")
+        val username = intent.getStringExtra("username")
+            //SharePref.getStringValue(this, "username")
     //    userToken = SharePref.getStringValue(this, "usertoken")
 
         val user = username
@@ -51,7 +52,7 @@ class MainActivity : AppCompatActivity() {
 
         val stringBuilder = StringBuilder()
 
-        userName.text = stringBuilder.append(main).append("(").append("user").append(")")
+        userName.text = stringBuilder.append(main).append("(").append("ZC").append(")")
 
         viewPager = ViewPager(this)
         viewPagerAdapter = ViewPagerAdapter(supportFragmentManager)

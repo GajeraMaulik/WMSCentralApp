@@ -65,7 +65,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_15sdp" />
 
-                <TextView
+                <EditText
                     android:id="@+id/tvItemNo_pd"
                     android:layout_width="@dimen/_160sdp"
                     android:layout_height="@dimen/_25sdp"
@@ -109,7 +109,7 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/_15sdp" />
 
-                <TextView
+                <EditText
                     android:id="@+id/tvBinNo_pd"
                     android:layout_width="@dimen/_160sdp"
                     android:layout_height="@dimen/_25sdp"
@@ -182,7 +182,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_10sdp"
-                        android:text="Demo"
+                        android:text="150-151"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp"
                         android:textStyle="bold" />
@@ -209,7 +209,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_12sdp"
-                        android:text="Demo"
+                        android:text="18 EA"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp"
                         android:textStyle="bold" />
@@ -236,7 +236,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_10sdp"
-                        android:text="Demo"
+                        android:text="18 EA"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp"
                         android:textStyle="bold" />
@@ -263,7 +263,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_10sdp"
-                        android:text="Demo"
+                        android:text="A-2-04-3"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp"
                         android:textStyle="bold" />
@@ -291,7 +291,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_10sdp"
-                        android:text="Demo"
+                        android:text="112"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp"
                         android:textStyle="bold" />

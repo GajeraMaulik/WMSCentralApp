@@ -11,33 +11,33 @@
         android:layout_height="wrap_content"
         tools:ignore="MissingConstraints">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolBar_It"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_60sdp"
-        android:background="@drawable/custom_toolbar"
-        tools:ignore="MissingConstraints">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolBar_It"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60sdp"
+            android:background="@drawable/custom_toolbar"
+            tools:ignore="MissingConstraints">
 
 
-        <ImageView
-            android:id="@+id/back_it_Btn"
-            android:layout_width="@dimen/_30sdp"
-            android:layout_height="@dimen/_30sdp"
-            app:srcCompat="@drawable/short_left"
-            tools:ignore="ContentDescription,RtlHardcoded,RtlSymmetry" />
+            <ImageView
+                android:id="@+id/back_it_Btn"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                app:srcCompat="@drawable/short_left"
+                tools:ignore="ContentDescription,RtlHardcoded,RtlSymmetry" />
 
-        <TextView
-            android:id="@+id/title_It"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Inventory Transaction"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_15sdp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/title_It"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Inventory Transaction"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold" />
 
 
-    </androidx.appcompat.widget.Toolbar>
+        </androidx.appcompat.widget.Toolbar>
         <androidx.core.widget.NestedScrollView
             android:id="@+id/nestedScroll"
             android:layout_width="match_parent"

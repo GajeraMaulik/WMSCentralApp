@@ -34,9 +34,10 @@ class InventoryCountListActivity : AppCompatActivity() {
         window.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimary)
 
         back_Btn_Count.setOnClickListener {
-            val i = Intent(this,InventoryTransactionActivity::class.java)
-            startActivity(i)
-            finish()
+//            val i = Intent(this,InventoryTransactionActivity::class.java)
+//            startActivity(i)
+//            finish()
+            super.onBackPressed()
         }
 
 

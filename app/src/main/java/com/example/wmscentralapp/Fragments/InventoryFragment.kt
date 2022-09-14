@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import com.example.wmscentralapp.Clp.ReceiveContainerActivity
@@ -23,6 +24,7 @@ import com.example.wmscentralapp.SharePref
 import kotlinx.android.synthetic.main.activity_po_scan_number.*
 import kotlinx.android.synthetic.main.activity_receive_container.*
 import kotlinx.android.synthetic.main.fragment_inventory.*
+import kotlinx.android.synthetic.main.item_dialog.*
 
 class InventoryFragment : Fragment() {
     lateinit var dialog : Dialog
@@ -72,9 +74,15 @@ class InventoryFragment : Fragment() {
         val continuebtn = dialog.findViewById<Button>(R.id.btnContinue)
         val newbtn = dialog.findViewById<Button>(R.id.btnNew)
         val title = dialog.findViewById<TextView>(R.id.txt_pickorder_title)
+        val oneBtnView = dialog.findViewById<LinearLayout>(R.id.oneBtnView)
+        val twoBtnView = dialog.findViewById<LinearLayout>(R.id.twoBtnView)
+
         title.text = "There’s same PO#did’t submit yet.\n Do you want pick new, or continue on\n exits?"
 
         val inventory = SharePref.getStringValue(requireContext(),"inventory")
+
+        oneBtnView.visibility = View.GONE
+        twoBtnView.visibility = View.VISIBLE
 
 
         //  edoderno = dialog.findViewById(R.id.edOderNo)

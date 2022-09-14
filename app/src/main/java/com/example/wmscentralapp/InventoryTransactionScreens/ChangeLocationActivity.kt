@@ -27,8 +27,7 @@ class ChangeLocationActivity : AppCompatActivity() {
         window.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimary)
 
         back_Cl_Btn.setOnClickListener {
-            onBackPressed()
-            return@setOnClickListener
+            finish()
         }
 
         list_LocationLabel.setOnClickListener {

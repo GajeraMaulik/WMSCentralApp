@@ -10,11 +10,13 @@ import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.example.wmscentralapp.LoginScreens.MainActivity
 import com.example.wmscentralapp.R
 import kotlinx.android.synthetic.main.activity_pack_picking.*
+import kotlinx.android.synthetic.main.item_dialog.*
 
 class PackPickingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +37,7 @@ class PackPickingActivity : AppCompatActivity() {
 
         val pickid = intent.getStringExtra("pickId")
 
+
         pickIdNo.text = pickid
         pickIdNo1.text = pickid
 
@@ -51,7 +54,7 @@ class PackPickingActivity : AppCompatActivity() {
             /* i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
              i.flags = Intent.FLAG_ACTIVITY_NEW_TASK*/
             startActivity(i)
-            finish()
+           // finish()
         }
         back_Packpicking_Btn.setOnClickListener {
             val i = Intent(this, MainActivity::class.java)
@@ -98,12 +101,16 @@ class PackPickingActivity : AppCompatActivity() {
         val okbtn = dialog.findViewById<Button>(R.id.btnContinue)
         val cancelbtn = dialog.findViewById<Button>(R.id.btnNew)
         val title = dialog.findViewById<TextView>(R.id.txt_pickorder_title)
+        val oneBtnView = dialog.findViewById<LinearLayout>(R.id.oneBtnView)
+        val twoBtnView = dialog.findViewById<LinearLayout>(R.id.twoBtnView)
 
         title.text = "Not all item picked submit as is or\n" +
                 "go back and abjust the order."
         title.textAlignment = View.TEXT_ALIGNMENT_CENTER
         title.textSize = 12F
 
+        oneBtnView.visibility = View.GONE
+        twoBtnView.visibility = View.VISIBLE
 
 
         okbtn.text = "Submit"
@@ -136,11 +143,11 @@ class PackPickingActivity : AppCompatActivity() {
         //set message for alert dialog
         dialog.setContentView(R.layout.item_dialog)
 
-        val okbtn = dialog.findViewById<Button>(R.id.btnContinue)
-        val cancelbtn = dialog.findViewById<Button>(R.id.btnNew)
+        val okbtn = dialog.findViewById<Button>(R.id.btnOk)
         val title =dialog.findViewById<TextView>(R.id.txt_pickorder_title)
         val testoder = dialog.findViewById<TextView>(R.id.pickingItems)
-
+        val oneBtnView = dialog.findViewById<LinearLayout>(R.id.oneBtnView)
+        val twoBtnView = dialog.findViewById<LinearLayout>(R.id.twoBtnView)
         title.text = "Alert"
 
         title.setTextColor(Color.parseColor("#863B7B"))
@@ -152,22 +159,10 @@ class PackPickingActivity : AppCompatActivity() {
 
         testoder.gravity = Gravity.CENTER_HORIZONTAL
         testoder.visibility = View.VISIBLE
-        cancelbtn.visibility = View.GONE
+        twoBtnView.visibility = View.GONE
+        oneBtnView.visibility = View.VISIBLE
 
-//        pickingItems.visibility = View.VISIBLE
 
-        okbtn.text = "Ok"
-        okbtn.gravity = Gravity.CENTER
-
-        val displayMetrics = resources.displayMetrics
-        val width = displayMetrics.widthPixels
-        val height = displayMetrics.heightPixels
-        val params: ViewGroup.LayoutParams = okbtn.getLayoutParams()
-        params.height = height / 15 // 10%
-
-        params.width = width * 50 / 100 // 20%
-
-        okbtn.setLayoutParams(params)
 
 
         okbtn.setOnClickListener {

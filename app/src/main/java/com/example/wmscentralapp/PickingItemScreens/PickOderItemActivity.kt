@@ -16,10 +16,12 @@ import androidx.core.content.ContextCompat
 import com.example.wmscentralapp.LoginScreens.MainActivity
 import com.example.wmscentralapp.OrderCommentModel.OrderCommentsListResponse
 import com.example.wmscentralapp.PickOrderScreens.OrderInfo
+import com.example.wmscentralapp.PickingItemScreens.PickingOrderDetailActivity
 import com.example.wmscentralapp.R
 import com.example.wmscentralapp.Services.Client
 import com.example.wmscentralapp.SharePref
 import kotlinx.android.synthetic.main.activity_pick_oder_item.*
+import kotlinx.android.synthetic.main.item_dialog.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -46,6 +48,8 @@ class PickOderItemActivity : AppCompatActivity() {
         val dialogBinding = layoutInflater.inflate(R.layout.item_dialog,null)
         dialog = Dialog(this)
         dialog.setContentView(dialogBinding)
+
+
 
         pickItems.setOnClickListener {
             val intent = Intent(this@PickOderItemActivity, PickingItemActivity::class.java)
@@ -76,7 +80,7 @@ class PickOderItemActivity : AppCompatActivity() {
         title_Pickoder.text = stringBuilder.append(main).append(" ").append(no)
 
         itemLabel.setOnClickListener {
-            val intent = Intent(this@PickOderItemActivity, PickingOrderDetailsActivity::class.java)
+            val intent = Intent(this@PickOderItemActivity, PickingOrderDetailActivity::class.java)
             startActivity(intent)
             dialog.dismiss()
             return@setOnClickListener
@@ -86,6 +90,7 @@ class PickOderItemActivity : AppCompatActivity() {
             submitOderDialog()
         }
 
+        commentDialog()
 
     }
 
@@ -105,12 +110,17 @@ class PickOderItemActivity : AppCompatActivity() {
         val nobtn = dialog.findViewById<Button>(R.id.btnContinue)
         val yesbtn = dialog.findViewById<Button>(R.id.btnNew)
         val title = dialog.findViewById<TextView>(R.id.txt_pickorder_title)
-
+        val oneBtnView = dialog.findViewById<LinearLayout>(R.id.oneBtnView)
+        val twoBtnView = dialog.findViewById<LinearLayout>(R.id.twoBtnView)
         title.text = "Picking has stareted for orders\n" +
                 "$ord_no are you sure you want to \n" +
                 "save?"
         title.textAlignment = View.TEXT_ALIGNMENT_CENTER
-        title.textSize = 12F
+     //   title.textSize = 12F
+
+        oneBtnView.visibility = View.GONE
+        twoBtnView.visibility = View.VISIBLE
+
 
 
 
@@ -149,9 +159,10 @@ class PickOderItemActivity : AppCompatActivity() {
         //set message for alert dialog
         dialog.setContentView(R.layout.item_dialog)
 
-        val okbtn = dialog.findViewById<Button>(R.id.btnContinue)
-        val cancelbtn = dialog.findViewById<Button>(R.id.btnNew)
+        val okbtn = dialog.findViewById<Button>(R.id.btnOk)
         val title = dialog.findViewById<TextView>(R.id.txt_pickorder_title)
+        val oneBtnView = dialog.findViewById<LinearLayout>(R.id.oneBtnView)
+        val twoBtnView = dialog.findViewById<LinearLayout>(R.id.twoBtnView)
         val testoder = dialog.findViewById<TextView>(R.id.pickingItems)
 
         title.text = "Notes"
@@ -160,25 +171,14 @@ class PickOderItemActivity : AppCompatActivity() {
 
         var commentValue = SharePref.getStringValue(this@PickOderItemActivity,"comment")
 
-        var comment = commentValue
+        var comment = "test order"
         testoder.text = comment
+
+        oneBtnView.visibility = View.VISIBLE
+        twoBtnView.visibility = View.GONE
         testoder.visibility = View.VISIBLE
-        cancelbtn.visibility = View.GONE
 
-//        pickingItems.visibility = View.VISIBLE
 
-        okbtn.text = "Ok"
-        okbtn.gravity = Gravity.CENTER
-
-        val displayMetrics = resources.displayMetrics
-        val width = displayMetrics.widthPixels
-        val height = displayMetrics.heightPixels
-        val params: ViewGroup.LayoutParams = okbtn.getLayoutParams()
-        params.height = height / 15 // 10%
-
-        params.width = width * 50 / 100 // 20%
-
-        okbtn.setLayoutParams(params)
 
         okbtn.setOnClickListener {
           dialog.dismiss()
@@ -241,10 +241,15 @@ class PickOderItemActivity : AppCompatActivity() {
         val cancelbtn = dialog.findViewById<Button>(R.id.btnNew)
         val title = dialog.findViewById<TextView>(R.id.txt_pickorder_title)
         val logo = dialog.findViewById<ImageView>(R.id.dialog_logo)
+        val oneBtnView = dialog.findViewById<LinearLayout>(R.id.oneBtnView)
+        val twoBtnView = dialog.findViewById<LinearLayout>(R.id.twoBtnView)
         val testoder = dialog.findViewById<TextView>(R.id.pickingItems)
 
 
         logo.visibility = View.VISIBLE
+
+        oneBtnView.visibility = View.GONE
+        twoBtnView.visibility = View.VISIBLE
 
         title.text = "Not all items Picked. Submit As\n" +
                 "is or go back and adjust the \n" +
@@ -280,7 +285,8 @@ class PickOderItemActivity : AppCompatActivity() {
         val cancelbtn = dialog.findViewById<Button>(R.id.btnNew)
         val title = dialog.findViewById<TextView>(R.id.txt_pickorder_title)
         val testoder = dialog.findViewById<TextView>(R.id.pickingItems)
-
+        val oneBtnView = dialog.findViewById<LinearLayout>(R.id.oneBtnView)
+        val twoBtnView = dialog.findViewById<LinearLayout>(R.id.twoBtnView)
         etPickId = dialog.findViewById(R.id.edOderNo)
 
 
@@ -294,6 +300,8 @@ class PickOderItemActivity : AppCompatActivity() {
         etPickId!!.visibility = View.VISIBLE
         etPickId!!.inputType = InputType.TYPE_TEXT_VARIATION_PASSWORD
 
+        oneBtnView.visibility = View.GONE
+        twoBtnView.visibility = View.VISIBLE
 
 
 
@@ -333,11 +341,12 @@ class PickOderItemActivity : AppCompatActivity() {
         //set message for alert dialog
         dialog.setContentView(R.layout.item_dialog)
 
-        val okbtn = dialog.findViewById<Button>(R.id.btnContinue)
-        val cancelbtn = dialog.findViewById<Button>(R.id.btnNew)
+        val okbtn = dialog.findViewById<Button>(R.id.btnOk)
+
         val title = dialog.findViewById<TextView>(R.id.txt_pickorder_title)
         val testoder = dialog.findViewById<TextView>(R.id.pickingItems)
-
+        val oneBtnView = dialog.findViewById<LinearLayout>(R.id.oneBtnView)
+        val twoBtnView = dialog.findViewById<LinearLayout>(R.id.twoBtnView)
         title.text = "Submit"
         title.textSize = 15F
 
@@ -345,22 +354,9 @@ class PickOderItemActivity : AppCompatActivity() {
 
 
         testoder.visibility = View.GONE
-        cancelbtn.visibility = View.GONE
 
-//        pickingItems.visibility = View.VISIBLE
-
-        okbtn.text = "Ok"
-        okbtn.gravity = Gravity.CENTER
-
-        val displayMetrics = resources.displayMetrics
-        val width = displayMetrics.widthPixels
-        val height = displayMetrics.heightPixels
-        val params: ViewGroup.LayoutParams = okbtn.getLayoutParams()
-        params.height = height / 15 // 10%
-
-        params.width = width * 50 / 100 // 20%
-
-        okbtn.setLayoutParams(params)
+        twoBtnView.visibility = View.GONE
+        oneBtnView.visibility = View.VISIBLE
 
 
         okbtn.setOnClickListener {
@@ -376,7 +372,6 @@ class PickOderItemActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        commentDialog()
         //getComment()
     }
 

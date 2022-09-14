@@ -11,8 +11,9 @@
         android:layout_width="@dimen/_280sdp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        app:cardCornerRadius="@dimen/_10sdp"
+        app:cardCornerRadius="@dimen/_5sdp"
         android:background="@color/white"
+        android:padding="@dimen/_10sdp"
         android:elevation="@dimen/_10sdp"
         app:cardElevation="@dimen/_10sdp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -23,6 +24,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="@dimen/_5sdp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -46,7 +48,7 @@
                     android:id="@+id/locations"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_40sdp"
+                    android:layout_marginStart="@dimen/_55sdp"
                     android:textFontWeight="600"
                     android:fontFamily="@font/open_sans"
                     android:text="Demo"
@@ -103,7 +105,7 @@
                     android:textSize="@dimen/_12sdp" />
 
                 <TextView
-                    android:id="@+id/qTYONHAND"
+                    android:id="@+id/qtyOnhandNo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"

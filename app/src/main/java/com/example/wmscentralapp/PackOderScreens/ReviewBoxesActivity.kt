@@ -28,9 +28,9 @@ class ReviewBoxesActivity : AppCompatActivity() {
         prepareItemData()
 
             back_Reviewboxes_Btn.setOnClickListener {
-                val i = Intent(this, PackPickingActivity::class.java)
+              /*  val i = Intent(this, PackPickingActivity::class.java)
 
-                startActivity(i)
+                startActivity(i)*/
                 finish()
             }
 

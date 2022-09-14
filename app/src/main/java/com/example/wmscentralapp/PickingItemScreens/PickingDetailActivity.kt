@@ -8,16 +8,14 @@ import android.text.TextWatcher
 import android.util.Log
 import android.view.Gravity
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doOnTextChanged
 import com.example.wmscentralapp.R
 import com.example.wmscentralapp.SharePref
 import kotlinx.android.synthetic.main.activity_pick_item.*
 import kotlinx.android.synthetic.main.activity_picking_detail.*
+import kotlinx.android.synthetic.main.item_dialog.*
 
 class PickingDetailActivity : AppCompatActivity() {
     var etPickId: EditText? = null
@@ -33,8 +31,8 @@ class PickingDetailActivity : AppCompatActivity() {
         val binno =SharePref.getStringValue(this,"binno")
         val itemno = SharePref.getStringValue(this,"itemno")
 
-        tvItemNo_pd.text =itemno
-        tvBinNo_pd.text = binno
+        tvItemNo_pd.setText(itemNo_pd.text)
+        tvBinNo_pd.setText(binNo_pd.text)
      //   tvItemScanNo_pd.text = itemno
        // tvScanBinNo_pd.text = binno
         back_Pickitem_pd_Btn.setOnClickListener {
@@ -84,6 +82,8 @@ class PickingDetailActivity : AppCompatActivity() {
         val okbtn = dialog.findViewById<Button>(R.id.btnContinue)
         val cancelbtn = dialog.findViewById<Button>(R.id.btnNew)
         val title = dialog.findViewById<TextView>(R.id.txt_pickorder_title)
+        val oneBtnView = dialog.findViewById<LinearLayout>(R.id.oneBtnView)
+        val twoBtnView = dialog.findViewById<LinearLayout>(R.id.twoBtnView)
 
         etPickId = dialog.findViewById(R.id.edOderNo)
 
@@ -95,6 +95,8 @@ class PickingDetailActivity : AppCompatActivity() {
         etPickId!!.visibility = View.VISIBLE
 
 
+        oneBtnView.visibility = View.GONE
+        twoBtnView.visibility = View.VISIBLE
 
 
         okbtn.text = "Ok"

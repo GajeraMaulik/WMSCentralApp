@@ -20,12 +20,23 @@ class PackReviewBoxDetailActivity : AppCompatActivity() {
 
         back_Btn_Prbd.setOnClickListener {
           //  onBackPressed()
-            val i = Intent(this, ReviewBoxesActivity::class.java)
+            finish()
+        /*    val i = Intent(this, ReviewBoxesActivity::class.java)
 
             startActivity(i)
-            return@setOnClickListener
+            return@setOnClickListener*/
 
         }
+
+        val itemNo = intent.getStringExtra("itemNo")
+        val qtyNo = intent.getStringExtra("qtyNo")
+        val date = "07/16/2021"
+
+
+        etScanDate_prbd.setText(date)
+        itemNo_prbd.setText(itemNo)
+        qtyNo_prbd.setText(qtyNo)
+
 
         btnDelete_prbd.setOnClickListener {
             val i = Intent(this, ReviewBoxesActivity::class.java)

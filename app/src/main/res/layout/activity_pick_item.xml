@@ -111,11 +111,11 @@
                         android:textSize="@dimen/_12sdp" />
 
                     <TextView
-                        android:id="@+id/locations"
+                        android:id="@+id/itemNo_Pi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:text="Demo"
+                        android:layout_marginStart="@dimen/_6sdp"
+                        android:text="150-151"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp"
                         android:textStyle="bold" />
@@ -141,8 +141,8 @@
                         android:id="@+id/shipNo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_12sdp"
-                        android:text="Demo"
+                        android:layout_marginStart="@dimen/_6sdp"
+                        android:text="18 EA"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp"
                         android:textStyle="bold" />
@@ -168,8 +168,8 @@
                         android:id="@+id/qTYONHAND"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:text="Demo"
+                        android:layout_marginStart="@dimen/_6sdp"
+                        android:text="18 EA"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp"
                         android:textStyle="bold" />
@@ -196,7 +196,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_10sdp"
-                        android:text="Demo"
+                        android:text="A-2-04-3"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp"
                         android:textStyle="bold" />
@@ -224,7 +224,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_10sdp"
-                        android:text="Demo"
+                        android:text="112"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp"
                         android:textStyle="bold" />

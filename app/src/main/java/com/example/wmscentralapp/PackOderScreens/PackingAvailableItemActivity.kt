@@ -3,6 +3,7 @@ package com.example.wmscentralapp.PackOderScreens
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.core.content.ContextCompat
 import com.example.wmscentralapp.Adapter.PackAvailableAdapter
 import com.example.wmscentralapp.Model.PackAvailableData
@@ -25,10 +26,15 @@ class PackingAvailableItemActivity : AppCompatActivity() {
         window.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimary)
 
         back_Packavailable_Btn.setOnClickListener {
-            val i = Intent(this, PackAddBoxActivity::class.java)
-            /* i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-             i.flags = Intent.FLAG_ACTIVITY_NEW_TASK*/
-            startActivity(i)
+          /*  val i = Intent(this, PackPickingActivity::class.java)
+             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+             i.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(i)*/
+            finish()
+            Log.e("press","pressBack")
+         //   onBackPressed()
+          //  return@setOnClickListener
+
         }
 
         adapter = PackAvailableAdapter(this,packAvailableList)

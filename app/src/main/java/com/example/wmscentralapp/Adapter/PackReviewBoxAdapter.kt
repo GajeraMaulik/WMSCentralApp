@@ -44,6 +44,8 @@ import com.example.wmscentralapp.databinding.ItemsReviewBoxBinding
 
                  binding.lLabelReviewBox.setOnClickListener {
                      val i = Intent(context, PackReviewBoxDetailActivity::class.java)
+                     i.putExtra("itemNo","$itemno")
+                     i.putExtra("qtyNo","$qty")
                      i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                      i.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                      context.startActivity(i)

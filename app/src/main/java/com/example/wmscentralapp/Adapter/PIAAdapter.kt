@@ -68,9 +68,10 @@ class PIAAdapter:RecyclerView.Adapter<PIAAdapter.ViewHolder> {
         val dialog = BottomSheetDialog(context)
         dialog.setCanceledOnTouchOutside(false)
 
+
         val view = LayoutInflater.from(context).inflate(
                 R.layout.item_bottom_sheet_dialog, view.findViewById<ConstraintLayout>(R.id.bottomsheet))
-        view.setBackgroundColor(Color.TRANSPARENT)
+     //   view.setBackgroundColor(Color.parseColor("#00000000"))
         view.findViewById<TextView>(R.id.bsd_Title).text = "Manual Operation"
         view.findViewById<Button>(R.id.bsd_Single).text = "Manual Issue"
         view.findViewById<Button>(R.id.bsd_Single).setOnClickListener {

@@ -15,10 +15,7 @@ import android.view.Gravity
 import android.view.View
 import android.view.View.GONE
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.core.content.ContextCompat
 import androidx.core.view.marginTop
 import com.example.wmscentralapp.LoginScreens.MainActivity
@@ -29,6 +26,7 @@ import com.example.wmscentralapp.R
 import com.example.wmscentralapp.SharePref
 import kotlinx.android.synthetic.main.activity_inventory_transaction.*
 import kotlinx.android.synthetic.main.activity_items_scan_view.*
+import kotlinx.android.synthetic.main.item_dialog.*
 
 class ItemsScanViewActivity : AppCompatActivity() {
      var etPickId: EditText? =null
@@ -61,8 +59,8 @@ class ItemsScanViewActivity : AppCompatActivity() {
             d("backisv","-----> bbbbbbackk")
             if (  isLItemView.visibility == GONE || isLFromBinView.visibility == GONE || title_It_Scan.text == "Issue"){
                 d("backisv","---if--> bbbbbbackk")
-                onBackPressed()
-                return@setOnClickListener
+                super.onBackPressed()
+//                return@setOnClickListener
             }else if (title_It_Scan.text == "Scan Count"){
                 val i = Intent(this, InventoryCountListActivity::class.java)
                 startActivity(i)
@@ -136,6 +134,8 @@ class ItemsScanViewActivity : AppCompatActivity() {
         val okbtn = dialog.findViewById<Button>(R.id.btnContinue)
         val cancelbtn = dialog.findViewById<Button>(R.id.btnNew)
         val title = dialog.findViewById<TextView>(R.id.txt_pickorder_title)
+        val oneBtnView = dialog.findViewById<LinearLayout>(R.id.oneBtnView)
+        val twoBtnView = dialog.findViewById<LinearLayout>(R.id.twoBtnView)
 
         etPickId = dialog.findViewById(R.id.edOderNo)
 
@@ -145,11 +145,12 @@ class ItemsScanViewActivity : AppCompatActivity() {
         title.text = "Item No."
         title.isAllCaps = true
         title.gravity = Gravity.LEFT
-        title.right = 10
         title.setTextColor(Color.parseColor("#863B7B"))
         etPickId!!.visibility = View.VISIBLE
         title.visibility = View.VISIBLE
 
+        oneBtnView.visibility = View.GONE
+        twoBtnView.visibility = View.VISIBLE
 
         okbtn.text = "Ok"
         cancelbtn.text = "Cancel"
@@ -214,10 +215,14 @@ class ItemsScanViewActivity : AppCompatActivity() {
         val okbtn = dialog.findViewById<Button>(R.id.btnContinue)
         val cancelbtn = dialog.findViewById<Button>(R.id.btnNew)
         val title = dialog.findViewById<TextView>(R.id.txt_pickorder_title)
+        val oneBtnView = dialog.findViewById<LinearLayout>(R.id.oneBtnView)
+        val twoBtnView = dialog.findViewById<LinearLayout>(R.id.twoBtnView)
 
         etPickId = dialog.findViewById(R.id.edOderNo)
 
 
+        oneBtnView.visibility = View.GONE
+        twoBtnView.visibility = View.VISIBLE
 
 
         title.text = "FROM BIN:"
@@ -273,6 +278,9 @@ class ItemsScanViewActivity : AppCompatActivity() {
         val cancelbtn = dialog.findViewById<Button>(R.id.btnNew)
         val title = dialog.findViewById<TextView>(R.id.txt_pickorder_title)
         val tag = dialog.findViewById<TextView>(R.id.pickingItems)
+        val oneBtnView = dialog.findViewById<LinearLayout>(R.id.oneBtnView)
+        val twoBtnView = dialog.findViewById<LinearLayout>(R.id.twoBtnView)
+
         etPickId = dialog.findViewById(R.id.edOderNo)
 
         etPickId!!.text = null
@@ -286,6 +294,10 @@ class ItemsScanViewActivity : AppCompatActivity() {
         etPickId!!.visibility = View.VISIBLE
         title.visibility = View.VISIBLE
         tag.visibility = GONE
+
+        oneBtnView.visibility = View.GONE
+        twoBtnView.visibility = View.VISIBLE
+
 
         val itemno = etPickId!!.text.toString()
 
@@ -348,7 +360,8 @@ class ItemsScanViewActivity : AppCompatActivity() {
 
         val etPickId : EditText = dialog.findViewById(R.id.edOderNo)
 
-
+        val oneBtnView = dialog.findViewById<LinearLayout>(R.id.oneBtnView)
+        val twoBtnView = dialog.findViewById<LinearLayout>(R.id.twoBtnView)
 
 
         title.text = "Quantity"
@@ -358,10 +371,13 @@ class ItemsScanViewActivity : AppCompatActivity() {
         etPickId!!.visibility = View.VISIBLE
         title.visibility = View.VISIBLE
 
-  /*      val itemno = etPickId!!.text.toString()
+        oneBtnView.visibility = View.GONE
+        twoBtnView.visibility = View.VISIBLE
 
-        SharePref.save(this, "isItemNos", "$itemno")
-*/
+        /*      val itemno = etPickId!!.text.toString()
+
+              SharePref.save(this, "isItemNos", "$itemno")
+      */
 
         okbtn.text = "Ok"
         cancelbtn.text = "Cancel"
@@ -410,7 +426,8 @@ class ItemsScanViewActivity : AppCompatActivity() {
         val tag = dialog.findViewById<TextView>(R.id.pickingItems)
 
         val etPickId:EditText = dialog.findViewById(R.id.edOderNo)
-
+        val oneBtnView = dialog.findViewById<LinearLayout>(R.id.oneBtnView)
+        val twoBtnView = dialog.findViewById<LinearLayout>(R.id.twoBtnView)
 
 
 
@@ -424,6 +441,10 @@ class ItemsScanViewActivity : AppCompatActivity() {
         etPickId!!.visibility = View.VISIBLE
         title.visibility = View.VISIBLE
         tag.visibility = View.VISIBLE
+
+        oneBtnView.visibility = View.GONE
+        twoBtnView.visibility = View.VISIBLE
+
 
         val itemno = etPickId!!.text.toString()
 
@@ -476,11 +497,11 @@ class ItemsScanViewActivity : AppCompatActivity() {
         dialog.setContentView(R.layout.item_dialog)
 
 
-        val okbtn = dialog.findViewById<Button>(R.id.btnContinue)
-        val cancelbtn = dialog.findViewById<Button>(R.id.btnNew)
+        val okbtn = dialog.findViewById<Button>(R.id.btnOk)
         val title =dialog.findViewById<TextView>(R.id.txt_pickorder_title)
         val testoder = dialog.findViewById<TextView>(R.id.pickingItems)
-
+        val oneBtnView = dialog.findViewById<LinearLayout>(R.id.oneBtnView)
+        val twoBtnView = dialog.findViewById<LinearLayout>(R.id.twoBtnView)
         val alert = intent.getStringExtra("alert")
         val tran = intent.getStringExtra("transfer")
 
@@ -512,21 +533,9 @@ class ItemsScanViewActivity : AppCompatActivity() {
 
         testoder.gravity = Gravity.CENTER_HORIZONTAL
         testoder.visibility = View.VISIBLE
-        cancelbtn.visibility = GONE
+        twoBtnView.visibility = View.GONE
+        oneBtnView.visibility = View.VISIBLE
 
-        val displayMetrics = resources.displayMetrics
-        val width = displayMetrics.widthPixels
-        val height = displayMetrics.heightPixels
-        val params: ViewGroup.LayoutParams = okbtn.getLayoutParams()
-        params.height = height / 15 // 10%
-
-        params.width = width * 60 / 100 // 20%
-
-        okbtn.setLayoutParams(params)
-
-
-        okbtn.text = "Ok"
-        okbtn.gravity = Gravity.CENTER
 
 
         okbtn.setOnClickListener {
@@ -592,7 +601,8 @@ class ItemsScanViewActivity : AppCompatActivity() {
         val okbtn = dialog.findViewById<Button>(R.id.btnContinue)
         val cancelbtn = dialog.findViewById<Button>(R.id.btnNew)
         val title = dialog.findViewById<TextView>(R.id.txt_pickorder_title)
-
+        val oneBtnView = dialog.findViewById<LinearLayout>(R.id.oneBtnView)
+        val twoBtnView = dialog.findViewById<LinearLayout>(R.id.twoBtnView)
         etPickId = dialog.findViewById(R.id.edOderNo)
 
 
@@ -606,6 +616,8 @@ class ItemsScanViewActivity : AppCompatActivity() {
         etPickId!!.visibility = View.VISIBLE
         title.visibility = View.VISIBLE
 
+        oneBtnView.visibility = View.GONE
+        twoBtnView.visibility = View.VISIBLE
 
 
         okbtn.text = "Ok"

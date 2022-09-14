@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.example.wmscentralapp.PickingItemScreens.PickingDetailReviewActivity
@@ -19,6 +20,7 @@ import kotlinx.android.synthetic.main.activity_pick_item.*
 import kotlinx.android.synthetic.main.activity_po_receving_list.*
 import kotlinx.android.synthetic.main.activity_receving_order_no.*
 import kotlinx.android.synthetic.main.activity_receving_order_no.back_Po_Btn
+import kotlinx.android.synthetic.main.item_dialog.*
 import java.util.*
 
 class RecevingOrderNoActivity : AppCompatActivity() {
@@ -47,8 +49,7 @@ class RecevingOrderNoActivity : AppCompatActivity() {
         toolBarHeader_Ron.text = stringBuilder.append(main).append(" ").append(no)
 
         back_Po_Btn.setOnClickListener {
-            onBackPressed()
-            return@setOnClickListener
+            finish()
         }
 
         atteachItem_btn.setOnClickListener {
@@ -79,18 +80,19 @@ class RecevingOrderNoActivity : AppCompatActivity() {
 
         dialog.setContentView(R.layout.item_dialog)
 
-        val okbtn = dialog.findViewById<Button>(R.id.btnContinue)
-        val cancelbtn = dialog.findViewById<Button>(R.id.btnNew)
+
         val title = dialog.findViewById<TextView>(R.id.txt_pickorder_title)
         val subtitle = dialog.findViewById<TextView>(R.id.pickingItems)
+        val oneBtnView = dialog.findViewById<LinearLayout>(R.id.oneBtnView)
+        val twoBtnView = dialog.findViewById<LinearLayout>(R.id.twoBtnView)
 
         title.text = "Warning"
         title.setTextColor(Color.parseColor("#863B7B"))
         subtitle.text = "No item submited"
 
+        oneBtnView.visibility = View.GONE
+        twoBtnView.visibility = View.GONE
 
-        okbtn.visibility = View.GONE
-        cancelbtn.visibility = View.GONE
         subtitle.visibility = View.VISIBLE
 
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
@@ -108,9 +110,9 @@ class RecevingOrderNoActivity : AppCompatActivity() {
         val swipeTimer = Timer()
         swipeTimer.schedule(object : TimerTask() {
             override fun run() {
-                handler.postDelayed(Update,2500)
+                handler.postDelayed(Update,2000)
             }
-        }, 2500, 2500)
+        }, 2000, 2000)
 
 
     }

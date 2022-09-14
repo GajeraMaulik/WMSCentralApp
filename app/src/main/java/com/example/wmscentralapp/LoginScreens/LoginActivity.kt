@@ -78,36 +78,44 @@ class LoginActivity : AppCompatActivity() {
 
         val buttonClick = AlphaAnimation(1f, 0.8f)
         loginBtn.setOnClickListener(View.OnClickListener { v: View ->
+
+
+
             etUsername.clearFocus()
             etPassword.clearFocus()
             v.startAnimation(buttonClick)
-            dismissKeyboard()
+         //   dismissKeyboard()
             username = etUsername.text.toString().trim()
             password = etPassword.text.toString()
 
-          //  if(username.isEmpty()){
+            if(username.isEmpty()){
                 etUsername.error = "Username required"
                 etUsername.requestFocus()
-        //    }else if(password.isEmpty()){
+            }else if(password.isEmpty()){
                 etPassword.error = "Password required"
                 etPassword.requestFocus()
-          //  }else{
+            }else {
                 logInUser()
-          //  }
+                  }
 
-        })
+            })
 
     }
 
     fun logInUser(){
+        etUsername.setText("ZC")
+        etPassword.setText("Test@123")
+
+
         val intent =Intent(this@LoginActivity, MainActivity::class.java)
+        intent.putExtra("username",etUsername.text)
       //  intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
 
 
         Log.d("loginsreen", "api hghgn}")
 
-        val retroInstance = Client.xmlInstance()
+     /*   val retroInstance = Client.xmlInstance()
         val call = retroInstance.xmllogin("User",etUsername.text,etPassword.text)
         call.enqueue(object : Callback<Users> {
 
@@ -162,7 +170,7 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this@LoginActivity,t.message, Toast.LENGTH_SHORT).show()
                 Log.d("loginsreen", "--login error->$t")
             }
-        })
+        })*/
     }
     override fun onStart() {
         super.onStart()

@@ -1,21 +1,24 @@
 package com.example.wmscentralapp.Adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.wmscentralapp.Model.PickOrderData
 import com.example.wmscentralapp.PickOrderScreens.OrderInfo
+import com.example.wmscentralapp.PickingItemScreens.PickingOrderDetailBinActivity
 import com.example.wmscentralapp.databinding.ItemsDetailsBinding
 
 class ItemsDetailsAdapter: RecyclerView.Adapter<ItemsDetailsAdapter.ViewHolder>  {
 
     lateinit var context: Context
-    lateinit var itemDetailsList: ArrayList<OrderInfo>
+    lateinit var itemDetailsList: ArrayList<PickOrderData>
 
 
     constructor()
-    constructor(context: Context, itemDetailsList: ArrayList<OrderInfo>
+    constructor(context: Context, itemDetailsList: ArrayList<PickOrderData>
     ) {
         this.context = context
         this.itemDetailsList = itemDetailsList
@@ -31,19 +34,20 @@ class ItemsDetailsAdapter: RecyclerView.Adapter<ItemsDetailsAdapter.ViewHolder> 
             with(itemDetailsList[position]){
 
                 for (i in 0..itemDetailsList.size -1) {
-                    binding.items.text = item_no
-                    binding.qty.text = qty_ordered
-                    binding.upc.text =  upc_cd
-                    binding.scc14.text =  SCC14
-                    binding.caseNo.text =  CasePack
+                    binding.items.text = itemNo
+                    binding.qty.text = qtyNo.toString()
+                    binding.upc.text =  upc.toString()
+                    binding.scc14.text =  ssc14
+                    binding.caseNo.text =  case.toString()
                     binding.cusName.text =  cus_name
-                    binding.cusNo.text =  cus_no
-                    binding.lineNo.text =  line_no
-                    binding.qtyPicked.text = "0"
+                    binding.lineNo.text =  lineNo.toString()
+                    binding.qtyPicked.text = qtyPicked.toString()
                 }
 
                 binding.itemDetailView.setOnClickListener {
-                    Toast.makeText(context,"$item_no",Toast.LENGTH_LONG).show()
+                    Toast.makeText(context,"$itemNo",Toast.LENGTH_LONG).show()
+                        val i = Intent(context,PickingOrderDetailBinActivity::class.java)
+                        context.startActivity(i)
                 }
             }
         }

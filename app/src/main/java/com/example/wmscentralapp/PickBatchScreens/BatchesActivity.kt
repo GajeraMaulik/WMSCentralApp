@@ -17,8 +17,7 @@ class BatchesActivity : AppCompatActivity() {
         window.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimary)
 
         back_Batches_Btn.setOnClickListener {
-            onBackPressed()
-            return@setOnClickListener
+          finish()
         }
 
     }

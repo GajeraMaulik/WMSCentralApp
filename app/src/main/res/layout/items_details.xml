@@ -12,7 +12,7 @@
         android:layout_width="@dimen/_280sdp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        app:cardCornerRadius="@dimen/_10sdp"
+        app:cardCornerRadius="@dimen/_5sdp"
         android:background="@color/white"
         android:elevation="@dimen/_10sdp"
         app:cardElevation="@dimen/_10sdp"

@@ -9,15 +9,13 @@ import android.text.InputType
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.core.content.ContextCompat
 import com.example.wmscentralapp.R
 import com.example.wmscentralapp.SharePref
 import kotlinx.android.synthetic.main.activity_manual_recive.*
 import kotlinx.android.synthetic.main.activity_manual_substitution.*
+import kotlinx.android.synthetic.main.item_dialog.*
 
 class ManualSubstitutionActivity : AppCompatActivity() {
     var etPickId: EditText? = null
@@ -68,11 +66,11 @@ class ManualSubstitutionActivity : AppCompatActivity() {
         //set message for alert dialog
         dialog.setContentView(R.layout.item_dialog)
 
-        val okbtn = dialog.findViewById<Button>(R.id.btnContinue)
-        val cancelbtn = dialog.findViewById<Button>(R.id.btnNew)
+        val okbtn = dialog.findViewById<Button>(R.id.btnOk)
         val title = dialog.findViewById<TextView>(R.id.txt_pickorder_title)
         val testoder = dialog.findViewById<TextView>(R.id.pickingItems)
-
+        val oneBtnView = dialog.findViewById<LinearLayout>(R.id.oneBtnView)
+        val twoBtnView = dialog.findViewById<LinearLayout>(R.id.twoBtnView)
         etPickId = dialog.findViewById(R.id.edOderNo)
 
         title.text = "Quantity"
@@ -80,30 +78,15 @@ class ManualSubstitutionActivity : AppCompatActivity() {
         title.setTextColor(Color.parseColor("#863B7B"))
 
         testoder.visibility = View.GONE
+        twoBtnView.visibility = View.GONE
+        oneBtnView.visibility = View.VISIBLE
+
+
 
         //  testoder.text = "Enter your comment below"
         etPickId!!.visibility = View.VISIBLE
         etPickId!!.hint = "This Item Issue "
         etPickId!!.inputType = InputType.TYPE_TEXT_VARIATION_LONG_MESSAGE
-
-
-
-        cancelbtn.visibility = View.GONE
-
-//        pickingItems.visibility = View.VISIBLE
-
-        okbtn.text = "Ok"
-        okbtn.gravity = Gravity.CENTER
-
-        val displayMetrics = resources.displayMetrics
-        val width = displayMetrics.widthPixels
-        val height = displayMetrics.heightPixels
-        val params: ViewGroup.LayoutParams = okbtn.getLayoutParams()
-        params.height = height / 15 // 10%
-
-        params.width = width * 50 / 100 // 20%
-
-        okbtn.setLayoutParams(params)
 
         okbtn.setOnClickListener {
             if (etPickId!!.text.isNotEmpty()) {
@@ -137,11 +120,11 @@ class ManualSubstitutionActivity : AppCompatActivity() {
         //set message for alert dialog
         dialog.setContentView(R.layout.item_dialog)
 
-        val okbtn = dialog.findViewById<Button>(R.id.btnContinue)
-        val cancelbtn = dialog.findViewById<Button>(R.id.btnNew)
+        val okbtn = dialog.findViewById<Button>(R.id.btnOk)
         val title = dialog.findViewById<TextView>(R.id.txt_pickorder_title)
         val testoder = dialog.findViewById<TextView>(R.id.pickingItems)
-
+        val oneBtnView = dialog.findViewById<LinearLayout>(R.id.oneBtnView)
+        val twoBtnView = dialog.findViewById<LinearLayout>(R.id.twoBtnView)
         etPickId = dialog.findViewById(R.id.edOderNo)
 
         title.text = "Comment:"
@@ -149,30 +132,14 @@ class ManualSubstitutionActivity : AppCompatActivity() {
         title.setTextColor(Color.parseColor("#863B7B"))
 
         testoder.visibility = View.VISIBLE
+        twoBtnView.visibility = View.GONE
+        oneBtnView.visibility = View.VISIBLE
 
         testoder.text = "Enter your comment below"
         etPickId!!.visibility = View.VISIBLE
         etPickId!!.hint = "Transfer other location"
         etPickId!!.inputType = InputType.TYPE_TEXT_VARIATION_LONG_MESSAGE
 
-
-
-        cancelbtn.visibility = View.GONE
-
-//        pickingItems.visibility = View.VISIBLE
-
-        okbtn.text = "Ok"
-        okbtn.gravity = Gravity.CENTER
-
-        val displayMetrics = resources.displayMetrics
-        val width = displayMetrics.widthPixels
-        val height = displayMetrics.heightPixels
-        val params: ViewGroup.LayoutParams = okbtn.getLayoutParams()
-        params.height = height / 15 // 10%
-
-        params.width = width * 50 / 100 // 20%
-
-        okbtn.setLayoutParams(params)
 
         okbtn.setOnClickListener {
             if (etPickId!!.text.isNotEmpty()) {
@@ -201,11 +168,11 @@ class ManualSubstitutionActivity : AppCompatActivity() {
         //set message for alert dialog
         dialog.setContentView(R.layout.item_dialog)
 
-        val okbtn = dialog.findViewById<Button>(R.id.btnContinue)
-        val cancelbtn = dialog.findViewById<Button>(R.id.btnNew)
+        val okbtn = dialog.findViewById<Button>(R.id.btnOk)
         val title =dialog.findViewById<TextView>(R.id.txt_pickorder_title)
         val testoder = dialog.findViewById<TextView>(R.id.pickingItems)
-
+        val oneBtnView = dialog.findViewById<LinearLayout>(R.id.oneBtnView)
+        val twoBtnView = dialog.findViewById<LinearLayout>(R.id.twoBtnView)
         title.text = "Alert"
 
         title.setTextColor(Color.parseColor("#863B7B"))
@@ -216,22 +183,9 @@ class ManualSubstitutionActivity : AppCompatActivity() {
 
         testoder.gravity = Gravity.CENTER_HORIZONTAL
         testoder.visibility = View.VISIBLE
-        cancelbtn.visibility = View.GONE
 
-//        pickingItems.visibility = View.VISIBLE
-
-        okbtn.text = "Ok"
-        okbtn.gravity = Gravity.CENTER
-
-        val displayMetrics = resources.displayMetrics
-        val width = displayMetrics.widthPixels
-        val height = displayMetrics.heightPixels
-        val params: ViewGroup.LayoutParams = okbtn.getLayoutParams()
-        params.height = height / 15 // 10%
-
-        params.width = width * 50 / 100 // 20%
-
-        okbtn.setLayoutParams(params)
+        twoBtnView.visibility = View.GONE
+        oneBtnView.visibility = View.VISIBLE
 
 
         okbtn.setOnClickListener {

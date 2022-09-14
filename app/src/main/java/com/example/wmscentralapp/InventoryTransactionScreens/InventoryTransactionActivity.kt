@@ -20,6 +20,7 @@ import kotlinx.android.synthetic.main.activity_inventory_transaction.*
 class InventoryTransactionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_inventory_transaction)
 
         val actionBar = supportActionBar
@@ -28,8 +29,9 @@ class InventoryTransactionActivity : AppCompatActivity() {
         window.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimary)
 
         back_it_Btn.setOnClickListener {
-            onBackPressed()
-            return@setOnClickListener
+//          startActivity(Intent(this,MainActivity::class.java))
+//            finish()
+            super.onBackPressed()
         }
 
         itIssue_Btn.setOnClickListener {
@@ -84,6 +86,7 @@ class InventoryTransactionActivity : AppCompatActivity() {
     private fun lookUpDialog() {
         val dialog = BottomSheetDialog(this)
         dialog.setCanceledOnTouchOutside(false)
+
         val view = LayoutInflater.from(this)
             .inflate(R.layout.item_bottom_sheet_dialog,
                 findViewById<ConstraintLayout>(R.id.bottomsheet))

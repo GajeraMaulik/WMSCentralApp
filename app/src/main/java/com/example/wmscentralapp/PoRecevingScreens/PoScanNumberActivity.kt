@@ -29,8 +29,7 @@ class PoScanNumberActivity : AppCompatActivity() {
 
 
         back_PoNo_Btn.setOnClickListener {
-            onBackPressed()
-            return@setOnClickListener
+           finish()
         }
 
     }

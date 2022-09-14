@@ -10,10 +10,7 @@ import android.text.Editable
 import android.util.Log
 import android.util.Log.d
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.wmscentralapp.LoginScreens.MainActivity
@@ -25,6 +22,7 @@ import com.example.wmscentralapp.Services.Client
 import com.example.wmscentralapp.SharePref
 import com.example.wmscentralapp.databinding.ActivityScanViewBinding
 import kotlinx.android.synthetic.main.activity_scan_view.*
+import kotlinx.android.synthetic.main.item_dialog.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -51,7 +49,7 @@ class ScanViewActivity : AppCompatActivity() {
         actionBar.setDisplayHomeAsUpEnabled(true)
         window.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimary)
 
-        val dialogBinding = layoutInflater.inflate(R.layout.item_dialog,null)
+        val dialogBinding = layoutInflater.inflate(R.layout.item_dialog, null)
         dialog = Dialog(this)
         dialog.setContentView(dialogBinding)
 
@@ -67,9 +65,9 @@ class ScanViewActivity : AppCompatActivity() {
             Dialog()
         }
 
-        if (oderno == ""){
-            scanOderNo.text =  ""
-        }else{
+        if (oderno == "") {
+            scanOderNo.text = ""
+        } else {
             oderno = SharePref.getStringValue(this, "oderno").toString()
             scanOderNo.text = oderno
         }
@@ -86,16 +84,17 @@ class ScanViewActivity : AppCompatActivity() {
         val okbtn = dialog.findViewById<Button>(R.id.btnContinue)
         val cancelbtn = dialog.findViewById<Button>(R.id.btnNew)
         val title = dialog.findViewById<TextView>(R.id.txt_pickorder_title)
-
+        val oneBtnView = dialog.findViewById<LinearLayout>(R.id.oneBtnView)
         edoderno = dialog.findViewById(R.id.edOderNo)
-        title.text = "Pick Id"
+        title.text = "Quantity"
 
 
-     /*   val itemId = intent.getStringExtra("itemId")
+        /*   val itemId = intent.getStringExtra("itemId")
         title.text = itemId*/
-      //  edOderNo.hint = itemId
+        //  edOderNo.hint = itemId
 
         edoderno!!.visibility = View.VISIBLE
+        oneBtnView.visibility = View.GONE
 
 
         okbtn.text = "Ok"
@@ -130,18 +129,25 @@ class ScanViewActivity : AppCompatActivity() {
         super.onPause()
         dialog.dismiss()
     }
+
     override fun onBackPressed() {
 
         startActivity(Intent(this, MainActivity::class.java))
         finish()
     }
-    fun pickOder(oderNo: Editable) {
-        //    val oderNo = edoderno!!.text
-        val retroInstance = Client.xmlInstance()
-        SharePref.save(this, "oderno", "$oderNo")
-        val call = retroInstance.pickpOrder("LoadPickingOrder", oderNo)
 
-        call.enqueue(object : Callback<com.example.wmscentralapp.PickOrderScreens.Zwms> {
+    fun pickOder(orderNo: Editable) {
+        val intent = Intent(this@ScanViewActivity, PickOderItemActivity::class.java)
+        intent.putExtra("OrderNo","$orderNo")
+   //     intent.putExtra("orderno","$oderno")
+        startActivity(intent)
+
+        //    val oderNo = edoderno!!.text
+            val retroInstance = Client.xmlInstance()
+        SharePref.save(this, "oderno", "$orderNo")
+        val call = retroInstance.pickpOrder("LoadPickingOrder", orderNo)
+
+     /*   call.enqueue(object : Callback<com.example.wmscentralapp.PickOrderScreens.Zwms> {
             override fun onResponse(
                 call: Call<com.example.wmscentralapp.PickOrderScreens.Zwms>,
                 zwms: Response<com.example.wmscentralapp.PickOrderScreens.Zwms>
@@ -211,9 +217,10 @@ class ScanViewActivity : AppCompatActivity() {
                     startActivity(intent)
 
                 }
-            }
 
-            override fun onFailure(
+      }
+
+  override fun onFailure(
                 call: Call<com.example.wmscentralapp.PickOrderScreens.Zwms>,
                 t: Throwable
             ) {
@@ -222,7 +229,7 @@ class ScanViewActivity : AppCompatActivity() {
 
         })
 
-
+*/
     }
 
 }

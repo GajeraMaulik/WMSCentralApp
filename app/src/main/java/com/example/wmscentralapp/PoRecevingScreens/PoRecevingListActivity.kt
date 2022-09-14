@@ -24,8 +24,7 @@ class PoRecevingListActivity : AppCompatActivity() {
         window.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimary)
 
         back_Po_Btn.setOnClickListener {
-            onBackPressed()
-            return@setOnClickListener
+          finish()
         }
 
         adapter = PoRecevingListAdapter(this,poRecevingList)

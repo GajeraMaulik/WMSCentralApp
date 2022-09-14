@@ -11,7 +11,8 @@ import com.example.wmscentralapp.Model.PickedItemData
 import com.example.wmscentralapp.R
 import kotlinx.android.synthetic.main.activity_picked_item.*
 
-class PickedItemActivity : AppCompatActivity() {
+class
+PickedItemActivity : AppCompatActivity() {
      var pickedItemList: ArrayList<PickedItemData> = ArrayList()
     lateinit var adapter:PickedItemAdapter
     override fun onCreate(savedInstanceState: Bundle?) {

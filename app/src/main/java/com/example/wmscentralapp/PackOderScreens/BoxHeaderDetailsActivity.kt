@@ -13,6 +13,7 @@ import android.view.View
 import android.view.View.inflate
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -24,6 +25,7 @@ import com.example.wmscentralapp.databinding.ActivityBatchesBinding.inflate
 import com.example.wmscentralapp.databinding.ItemBatchesBinding
 import com.example.wmscentralapp.databinding.ItemsChooseDialogBinding
 import kotlinx.android.synthetic.main.activity_box_header_details.*
+import kotlinx.android.synthetic.main.item_dialog.*
 import kotlinx.android.synthetic.main.items_choose_dialog.*
 
 class BoxHeaderDetailsActivity : AppCompatActivity() {
@@ -43,8 +45,7 @@ class BoxHeaderDetailsActivity : AppCompatActivity() {
 
 
         back_bhd_Btn.setOnClickListener {
-            onBackPressed()
-            return@setOnClickListener
+            finish()
         }
 
         packBoxSaveLabel.setOnClickListener {
@@ -130,11 +131,11 @@ class BoxHeaderDetailsActivity : AppCompatActivity() {
             //set message for alert dialog
             dialog.setContentView(R.layout.item_dialog)
 
-            val okbtn = dialog.findViewById<Button>(R.id.btnContinue)
-            val cancelbtn = dialog.findViewById<Button>(R.id.btnNew)
+            val okbtn = dialog.findViewById<Button>(R.id.btnOk)
             val title =dialog.findViewById<TextView>(R.id.txt_pickorder_title)
             val testoder = dialog.findViewById<TextView>(R.id.pickingItems)
-
+            val oneBtnView = dialog.findViewById<LinearLayout>(R.id.oneBtnView)
+            val twoBtnView = dialog.findViewById<LinearLayout>(R.id.twoBtnView)
             title.text = "Submit Success!"
 
             title.setTextColor(Color.parseColor("#863B7B"))
@@ -145,23 +146,13 @@ class BoxHeaderDetailsActivity : AppCompatActivity() {
 
             testoder.gravity = Gravity.CENTER_HORIZONTAL
             testoder.top = 5
-            testoder.visibility = View.VISIBLE
-            cancelbtn.visibility = View.GONE
             okbtn.top = 5
-//        pickingItems.visibility = View.VISIBLE
 
-            okbtn.text = "Ok"
-            okbtn.gravity = Gravity.CENTER
+            testoder.visibility = View.VISIBLE
+            twoBtnView.visibility = View.GONE
+            oneBtnView.visibility = View.VISIBLE
 
-            val displayMetrics = resources.displayMetrics
-            val width = displayMetrics.widthPixels
-            val height = displayMetrics.heightPixels
-            val params: ViewGroup.LayoutParams = okbtn.getLayoutParams()
-            params.height = height / 15 // 10%
 
-            params.width = width * 50 / 100 // 20%
-
-            okbtn.setLayoutParams(params)
 
 
             okbtn.setOnClickListener {

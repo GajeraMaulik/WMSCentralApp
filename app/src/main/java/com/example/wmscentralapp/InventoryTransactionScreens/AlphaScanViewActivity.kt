@@ -58,8 +58,7 @@ class AlphaScanViewActivity : AppCompatActivity() {
 
         back_AlphaScan_Btn.setOnClickListener {
 
-                onBackPressed()
-                return@setOnClickListener
+               finish()
 
 
         }

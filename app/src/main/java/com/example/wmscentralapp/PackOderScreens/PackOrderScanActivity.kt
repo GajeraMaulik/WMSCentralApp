@@ -10,15 +10,13 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.core.content.ContextCompat
 import com.example.wmscentralapp.LoginScreens.MainActivity
 import com.example.wmscentralapp.R
 import com.example.wmscentralapp.SharePref
 import kotlinx.android.synthetic.main.activity_pack_order_scan.*
+import kotlinx.android.synthetic.main.item_dialog.*
 
 class PackOrderScanActivity : AppCompatActivity() {
     var etPickId: EditText? = null
@@ -38,21 +36,22 @@ class PackOrderScanActivity : AppCompatActivity() {
         dialog.setContentView(dialogBinding)
 
         back_Pack_Btn.setOnClickListener{
-            onBackPressed()
-            Log.d("wms app", "---------->${onBackPressed()}")
+            //onBackPressed()
+            finish()
+           // Log.d("wms app", "---------->${onBackPressed()}")
+            Log.e("maulik","Backpress")
 
-
-          //  return@setOnClickListener
+            return@setOnClickListener
         }
         pickItemLabel.setOnClickListener {
                 Dialog()
         }
     }
-    override fun onBackPressed() {
-
-   startActivity(Intent(this, MainActivity::class.java))
-        finish()
-    }
+/*    override fun onBackPressed() {
+        super.onBackPressed()
+  *//* startActivity(Intent(this, MainActivity::class.java))
+        finish()*//*
+    }*/
 
     @SuppressLint("SetTextI18n")
     fun Dialog() {
@@ -63,6 +62,8 @@ class PackOrderScanActivity : AppCompatActivity() {
         val okbtn = dialog.findViewById<Button>(R.id.btnContinue)
         val cancelbtn = dialog.findViewById<Button>(R.id.btnNew)
         val title = dialog.findViewById<TextView>(R.id.txt_pickorder_title)
+        val oneBtnView = dialog.findViewById<LinearLayout>(R.id.oneBtnView)
+        val twoBtnView = dialog.findViewById<LinearLayout>(R.id.twoBtnView)
 
         etPickId = dialog.findViewById(R.id.edOderNo)
 
@@ -85,6 +86,10 @@ class PackOrderScanActivity : AppCompatActivity() {
         title.setTextColor(Color.parseColor("#863B7B"))
         etPickId!!.visibility = View.VISIBLE
         title.visibility = View.VISIBLE
+
+        oneBtnView.visibility = View.GONE
+        twoBtnView.visibility = View.VISIBLE
+
 
         val pickid1 = etPickId!!.text.toString()
 
@@ -138,6 +143,8 @@ class PackOrderScanActivity : AppCompatActivity() {
         val cancelbtn = dialog.findViewById<Button>(R.id.btnNew)
         val title = dialog.findViewById<TextView>(R.id.txt_pickorder_title)
         val order = dialog.findViewById<TextView>(R.id.pickingItems)
+        val oneBtnView = dialog.findViewById<LinearLayout>(R.id.oneBtnView)
+        val twoBtnView = dialog.findViewById<LinearLayout>(R.id.twoBtnView)
 
         etPickId = dialog.findViewById(R.id.edOderNo)
 
@@ -153,6 +160,10 @@ class PackOrderScanActivity : AppCompatActivity() {
         etPickId!!.visibility = View.VISIBLE
         title.visibility = View.VISIBLE
         order.visibility = View.GONE
+
+        oneBtnView.visibility = View.GONE
+        twoBtnView.visibility = View.VISIBLE
+
 
 
         val pickid  = etPickId!!.text.toString()

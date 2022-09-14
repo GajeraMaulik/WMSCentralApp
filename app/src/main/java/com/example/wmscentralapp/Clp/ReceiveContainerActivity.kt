@@ -9,15 +9,13 @@ import android.util.Log.d
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.wmscentralapp.R
 import kotlinx.android.synthetic.main.activity_batches.back_Batches_Btn
 import kotlinx.android.synthetic.main.activity_receive_container.*
+import kotlinx.android.synthetic.main.item_dialog.*
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -127,11 +125,11 @@ class ReceiveContainerActivity : AppCompatActivity() {
         //set message for alert dialog
         dialog.setContentView(R.layout.item_dialog)
 
-        val okbtn = dialog.findViewById<Button>(R.id.btnContinue)
-        val cancelbtn = dialog.findViewById<Button>(R.id.btnNew)
+        val okbtn = dialog.findViewById<Button>(R.id.btnOk)
         val title = dialog.findViewById<TextView>(R.id.txt_pickorder_title)
         val testoder = dialog.findViewById<TextView>(R.id.pickingItems)
-
+        val oneBtnView = dialog.findViewById<LinearLayout>(R.id.oneBtnView)
+        val twoBtnView = dialog.findViewById<LinearLayout>(R.id.twoBtnView)
         title.text = "Error"
         title.textSize = 15F
         title.setTextColor(Color.parseColor("#863B7B"))
@@ -141,22 +139,11 @@ class ReceiveContainerActivity : AppCompatActivity() {
 
         testoder.gravity = Gravity.CENTER
         testoder.visibility = View.VISIBLE
-        cancelbtn.visibility = View.GONE
-
-//        pickingItems.visibility = View.VISIBLE
-
-        okbtn.text = "Ok"
+        oneBtnView.visibility = View.VISIBLE
+        twoBtnView.visibility = View.GONE
 
 
-        val displayMetrics = resources.displayMetrics
-        val width = displayMetrics.widthPixels
-        val height = displayMetrics.heightPixels
-        val params: ViewGroup.LayoutParams = okbtn.getLayoutParams()
-        params.height = height / 15 // 10%
 
-        params.width = width * 65 / 100 // 20%
-
-        okbtn.setLayoutParams(params)
 
 
         okbtn.setOnClickListener {
@@ -189,6 +176,8 @@ class ReceiveContainerActivity : AppCompatActivity() {
         val cancelbtn = dialog.findViewById<Button>(R.id.btnNew)
         val title = dialog.findViewById<TextView>(R.id.txt_pickorder_title)
         val testoder = dialog.findViewById<TextView>(R.id.pickingItems)
+        val oneBtnView = dialog.findViewById<LinearLayout>(R.id.oneBtnView)
+        val twoBtnView = dialog.findViewById<LinearLayout>(R.id.twoBtnView)
 
         title.text = "Confimation"
         title.textSize = 15F
@@ -208,9 +197,11 @@ class ReceiveContainerActivity : AppCompatActivity() {
 
         testoder.gravity = Gravity.CENTER
         testoder.visibility = View.VISIBLE
-        cancelbtn.visibility = View.VISIBLE
+        oneBtnView.visibility = View.GONE
+        twoBtnView.visibility = View.VISIBLE
 
-  //      rvSearchList.setText(etOrder.text)
+
+        //      rvSearchList.setText(etOrder.text)
 //        pickingItems.visibility = View.VISIBLE
 
         okbtn.text = "Cancel"
@@ -251,11 +242,11 @@ class ReceiveContainerActivity : AppCompatActivity() {
         //set message for alert dialog
         dialog.setContentView(R.layout.item_dialog)
 
-        val okbtn = dialog.findViewById<Button>(R.id.btnContinue)
-        val cancelbtn = dialog.findViewById<Button>(R.id.btnNew)
+        val okbtn = dialog.findViewById<Button>(R.id.btnOk)
         val title = dialog.findViewById<TextView>(R.id.txt_pickorder_title)
         val testoder = dialog.findViewById<TextView>(R.id.pickingItems)
-
+        val oneBtnView = dialog.findViewById<LinearLayout>(R.id.oneBtnView)
+        val twoBtnView = dialog.findViewById<LinearLayout>(R.id.twoBtnView)
         title.text = "Message"
         title.textSize = 15F
         title.setTextColor(Color.parseColor("#863B7B"))
@@ -265,21 +256,9 @@ class ReceiveContainerActivity : AppCompatActivity() {
 
         testoder.gravity = Gravity.CENTER
         testoder.visibility = View.VISIBLE
-        cancelbtn.visibility = View.GONE
-      //  rvSearchList.setText(etOrder.text)
-//        pickingItems.visibility = View.VISIBLE
+        oneBtnView.visibility = View.VISIBLE
+        twoBtnView.visibility = View.GONE
 
-        okbtn.text = "Ok"
-
-        val displayMetrics = resources.displayMetrics
-        val width = displayMetrics.widthPixels
-        val height = displayMetrics.heightPixels
-        val params: ViewGroup.LayoutParams = okbtn.getLayoutParams()
-        params.height = height / 15 // 10%
-
-        params.width = width * 65 / 100 // 20%
-
-        okbtn.setLayoutParams(params)
 
         okbtn.setOnClickListener {
             dialog.dismiss()

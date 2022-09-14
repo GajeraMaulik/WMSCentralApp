@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -20,6 +21,7 @@ import com.example.wmscentralapp.PackOderScreens.PickingItem.ScanViewActivity
 import com.example.wmscentralapp.PickBatchScreens.BatchesActivity
 import com.example.wmscentralapp.SharePref
 import kotlinx.android.synthetic.main.fragment_order_processing.*
+import kotlinx.android.synthetic.main.item_dialog.*
 
 class OrderProcessingFragment : Fragment() {
 
@@ -39,7 +41,7 @@ class OrderProcessingFragment : Fragment() {
         dialog.setContentView(dialogBinding)
 
         pickOder.setOnClickListener {
-            Dialog()
+            Dialog(view)
         }
 
         packOrder.setOnClickListener {
@@ -47,7 +49,6 @@ class OrderProcessingFragment : Fragment() {
             intent.putExtra("pickId","Pick Id")
             // intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
-            activity?.finish()
 
 
 
@@ -84,7 +85,7 @@ class OrderProcessingFragment : Fragment() {
         dialog.dismiss()
     }
 
-    fun Dialog(){
+    fun Dialog(view: View){
 
         //set title for alert dialog
      //   dialog.setTitle()
@@ -94,9 +95,14 @@ class OrderProcessingFragment : Fragment() {
         val continuebtn = dialog.findViewById<Button>(R.id.btnContinue)
         val newbtn = dialog.findViewById<Button>(R.id.btnNew)
         val title = dialog.findViewById<TextView>(R.id.txt_pickorder_title)
+        val oneBtnView = dialog.findViewById<LinearLayout>(R.id.oneBtnView)
+        val twoBtnView = dialog.findViewById<LinearLayout>(R.id.twoBtnView)
+
         title.text = "There’s some pick didn’t submit yet Do you want pick new or continue on exist ?"
 
         val order = SharePref.getStringValue(requireContext(),"order")
+
+        oneBtnView.visibility = View.GONE
 
         //  edoderno = dialog.findViewById(R.id.edOderNo)
         continuebtn.setOnClickListener {

@@ -17,8 +17,7 @@ class PoRecevingReviewItemsActivity : AppCompatActivity() {
         window.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimary)
 
         back_Poreview_Btn.setOnClickListener {
-            onBackPressed()
-            return@setOnClickListener
+            finish()
         }
 
     }
