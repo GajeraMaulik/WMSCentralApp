@@ -46,13 +46,14 @@ class PickingItemActivity : AppCompatActivity()  {
 
 
         back_Pickitem_Btn.setOnClickListener {
-                if (printRequestLabel.text != ""){
+            super.onBackPressed()
+            /*    if (printRequestLabel.text != ""){
                     val intent = Intent(this@PickingItemActivity, SuggestedItemActivity::class.java)
                     startActivity(intent)
                 }else{
                     onBackPressed()
                     return@setOnClickListener
-                }
+                }*/
 
             }
         val print = intent.getStringExtra("prinRequest")

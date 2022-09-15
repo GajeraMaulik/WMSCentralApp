@@ -7,6 +7,7 @@ import androidx.core.content.ContextCompat
 import com.example.wmscentralapp.Adapter.ReviewBoxesAdapter
 import com.example.wmscentralapp.Model.PackAvailableData
 import com.example.wmscentralapp.R
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_review_boxes.*
 
 class ReviewBoxesActivity : AppCompatActivity() {
@@ -22,6 +23,16 @@ class ReviewBoxesActivity : AppCompatActivity() {
         actionBar!!.hide()
         actionBar.setDisplayHomeAsUpEnabled(true)
         window.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimary)
+
+        val pickid = intent.getStringExtra("pickId")
+
+
+
+        val main = "Box"
+
+        val stringBuilder = StringBuilder()
+
+        title_Reviewbox.text = stringBuilder.append(main).append(" ").append("$pickid")
 
         adapter = ReviewBoxesAdapter(this,packReviewBoxesList)
         rvReviewBoxesItems.adapter = adapter

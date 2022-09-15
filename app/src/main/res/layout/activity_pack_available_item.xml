@@ -43,6 +43,7 @@
             android:id="@+id/rvAvailableItems"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingTop="@dimen/_20sdp"
             android:layout_below="@+id/toolBar"
             tools:listitem="@layout/items_pack_available"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />

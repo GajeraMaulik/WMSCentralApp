@@ -41,6 +41,7 @@
             android:id="@+id/rvItemsBin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="@dimen/_15sdp"
             android:layout_below="@+id/toolBar"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/items_details_bin"

@@ -9,7 +9,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolBar"
@@ -52,51 +54,55 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-            <TextView
-                android:id="@+id/itemlabel_pd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
 
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginTop="0dp"
-                android:layout_marginBottom="6dp"
-                android:gravity="center"
-                android:text="Item:"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_15sdp" />
+                <TextView
+                    android:id="@+id/itemlabel_pd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="6dp"
+                    android:gravity="center"
+                    android:text="Item:"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp" />
 
                 <EditText
                     android:id="@+id/tvItemNo_pd"
                     android:layout_width="@dimen/_160sdp"
                     android:layout_height="@dimen/_25sdp"
-                    android:autoSizeTextType="uniform"
-                    android:textSize="@dimen/_12sdp"
-                    android:focusable="auto"
-                    android:inputType="number"
-                    android:textColor="@color/black"
                     android:layout_alignTop="@+id/itemlabel_pd"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginTop="0dp"
                     android:layout_toRightOf="@+id/itemlabel_pd"
-                    android:background="@drawable/pd_et_bg" />
+                    android:autoSizeTextType="uniform"
+                    android:background="@drawable/pd_et_bg"
+                    android:focusable="auto"
+                    android:inputType="number"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp" />
 
-            <ImageView
-                android:id="@+id/scanLogo_pd"
-                android:layout_width="@dimen/_50sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_alignTop="@+id/itemNo_pd"
-                android:layout_alignBottom="@+id/itemNo_pd"
-                android:layout_marginStart="@dimen/_7sdp"
-                android:layout_toRightOf="@+id/itemNo_pd"
-                android:src="@drawable/smallscanicon" />
+                <ImageView
+                    android:id="@+id/scanLogo_pd"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_alignTop="@+id/itemNo_pd"
+                    android:layout_alignBottom="@+id/itemNo_pd"
+                    android:layout_marginStart="@dimen/_7sdp"
+                    android:layout_toRightOf="@+id/itemNo_pd"
+                    android:src="@drawable/smallscanicon" />
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/bin_view_pd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_7sdp"
                 android:layout_below="@id/item_view_pd"
+                android:layout_marginTop="@dimen/_7sdp"
                 android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/binlabel_pd"
                     android:layout_width="wrap_content"
@@ -113,16 +119,17 @@
                     android:id="@+id/tvBinNo_pd"
                     android:layout_width="@dimen/_160sdp"
                     android:layout_height="@dimen/_25sdp"
-                    android:autoSizeTextType="uniform"
-                    android:focusable="auto"
-                    android:inputType="number"
-                    android:textSize="@dimen/_12sdp"
-                    android:textColor="@color/black"
                     android:layout_alignTop="@+id/itemlabel_pd"
                     android:layout_marginStart="@dimen/_19sdp"
                     android:layout_marginTop="0dp"
                     android:layout_toRightOf="@+id/itemlabel_pd"
-                    android:background="@drawable/pd_et_bg" />
+                    android:autoSizeTextType="uniform"
+                    android:background="@drawable/pd_et_bg"
+                    android:focusable="auto"
+                    android:inputType="number"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp" />
 
                 <ImageView
                     android:layout_width="@dimen/_50sdp"
@@ -135,254 +142,258 @@
             </LinearLayout>
         </RelativeLayout>
 
+<LinearLayout
+    android:id="@+id/item_Detail_Views"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/manualItemView"
+    android:orientation="horizontal">
 
-        <androidx.cardview.widget.CardView
+    <androidx.cardview.widget.CardView
 
-            android:id="@+id/item_Detail_View"
-            android:layout_width="@dimen/_130sdp"
-            android:layout_height="@dimen/_140sdp"
-            android:layout_below="@+id/manualItemView"
-            android:layout_gravity="center_horizontal"
+        android:id="@+id/item_Detail_View"
+        android:layout_width="@dimen/_130sdp"
+        android:layout_height="@dimen/_140sdp"
+        android:layout_below="@+id/manualItemView"
+        android:layout_alignParentStart="true"
 
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_7sdp"
-            android:layout_marginEnd="@dimen/_7sdp"
-            android:layout_marginBottom="@dimen/_7sdp"
-            android:background="@color/white"
-            android:elevation="@dimen/_10sdp"
-            app:cardCornerRadius="@dimen/_10sdp"
-            app:cardElevation="@dimen/_10sdp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_7sdp"
+        android:layout_marginEnd="@dimen/_7sdp"
+        android:layout_marginBottom="@dimen/_7sdp"
+        android:background="@color/white"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:cardElevation="@dimen/_5sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:text="Item :"
+                    android:textColor="@color/pickItem"
+                    android:textSize="@dimen/_12sdp" />
+
+                <TextView
+                    android:id="@+id/itemNo_pd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:text="150-151"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:text="Ship :"
+                    android:textColor="@color/pickItem"
+                    android:textSize="@dimen/_12sdp" />
+
+                <TextView
+                    android:id="@+id/shipNo_pd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:text="18 EA"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:text="Pick :"
+                    android:textColor="@color/pickItem"
+                    android:textSize="@dimen/_12sdp" />
+
+                <TextView
+                    android:id="@+id/pick_pd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:text="18 EA"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:text="Bin :"
+                    android:textColor="@color/pickItem"
+                    android:textSize="@dimen/_12sdp" />
+
+                <TextView
+                    android:id="@+id/binNo_pd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:text="A-2-04-3"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:text="Qty :"
+                    android:textColor="@color/pickItem"
+                    android:textSize="@dimen/_12sdp" />
+
+                <TextView
+                    android:id="@+id/qtyNo_pd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:text="112"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+
+        android:id="@+id/avaolableBin"
+        android:layout_width="@dimen/_130sdp"
+        android:layout_height="@dimen/_140sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_7sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_7sdp"
+        android:layout_toEndOf="@+id/item_Detail_View"
+        android:background="@color/white"
+        android:elevation="@dimen/_5sdp"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:cardElevation="@dimen/_5sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:orientation="horizontal">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:text="Item :"
-                        android:textColor="@color/pickItem"
-                        android:textSize="@dimen/_12sdp" />
+                    android:text="Available Bins"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_17sdp" />
 
-                    <TextView
-                        android:id="@+id/itemNo_pd"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:text="150-151"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_12sdp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-
                     <TextView
+                        android:id="@+id/availableBins"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_10sdp"
-                        android:text="Ship :"
-                        android:textColor="@color/pickItem"
-                        android:textSize="@dimen/_12sdp" />
-
-                    <TextView
-                        android:id="@+id/shipNo_pd"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_12sdp"
-                        android:text="18 EA"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_12sdp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:orientation="horizontal">
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:text="Pick :"
-                        android:textColor="@color/pickItem"
-                        android:textSize="@dimen/_12sdp" />
-
-                    <TextView
-                        android:id="@+id/pick_pd"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:text="18 EA"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_12sdp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:orientation="horizontal">
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:text="Bin :"
-                        android:textColor="@color/pickItem"
-                        android:textSize="@dimen/_12sdp" />
-
-                    <TextView
-                        android:id="@+id/binNo_pd"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_12sdp"
                         android:text="A-2-04-3"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_12sdp"
+                        android:textSize="@dimen/_15sdp"
                         android:textStyle="bold" />
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:orientation="horizontal">
-
-
                     <TextView
+                        android:id="@+id/qtyNo_av_pd"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_10sdp"
-                        android:text="Qty :"
-                        android:textColor="@color/pickItem"
-                        android:textSize="@dimen/_12sdp" />
-
-                    <TextView
-                        android:id="@+id/qtyNo_pd"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_12sdp"
                         android:text="112"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_12sdp"
+                        android:textSize="@dimen/_15sdp"
                         android:textStyle="bold" />
-
                 </LinearLayout>
+
             </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-
-            android:id="@+id/avaolableBin"
-            android:layout_width="@dimen/_130sdp"
-            android:layout_height="@dimen/_140sdp"
-            android:layout_below="@+id/manualItemView"
-            android:layout_alignParentEnd="true"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_7sdp"
-            android:layout_marginEnd="@dimen/_15sdp"
-            android:layout_marginBottom="@dimen/_7sdp"
-            android:layout_toEndOf="@+id/item_Detail_View"
-            android:background="@color/white"
-            android:elevation="@dimen/_10sdp"
-            app:cardCornerRadius="@dimen/_10sdp"
-            app:cardElevation="@dimen/_10sdp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:orientation="vertical">
+        </LinearLayout>
 
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_10sdp"
-
-                        android:text="Available Bins"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="@dimen/_17sdp" />
-
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:id="@+id/availableBins"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_12sdp"
-                            android:text="A-2-04-3"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_15sdp"
-                            android:textStyle="bold" />
-                        <TextView
-                            android:id="@+id/qtyNo_av_pd"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_12sdp"
-                            android:text="112"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_15sdp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                </LinearLayout>
-            </LinearLayout>
-
-
-        </androidx.cardview.widget.CardView>
-
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
 
         <TextView
             android:id="@+id/scanLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/item_Detail_View"
+            android:layout_below="@+id/item_Detail_Views"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="@dimen/_10sdp"
@@ -430,36 +441,38 @@
                 android:textStyle="normal" />
 
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/lBin"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_35sdp"
+            android:layout_below="@+id/lPickItem"
             android:layout_marginStart="@dimen/_15sdp"
             android:layout_marginEnd="@dimen/_15sdp"
-            android:layout_marginBottom="@dimen/_15sdp"
 
-            android:layout_below="@+id/lPickItem"
+            android:layout_marginBottom="@dimen/_15sdp"
             android:background="@drawable/scan_bg2"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="BIN :"
                 android:layout_gravity="center_vertical"
-                android:textColor="@color/white"
-                android:textStyle="bold"
                 android:layout_marginStart="@dimen/_10sdp"
-                android:textSize="@dimen/_15sdp"/>
+                android:text="BIN :"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/tvScanBinNo_pd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="normal"
-                android:text=""
                 android:layout_gravity="center_vertical"
+                android:text=""
                 android:textColor="@color/white"
-                android:textSize="@dimen/_15sdp"/>
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="normal" />
 
         </LinearLayout>
 
@@ -470,11 +483,11 @@
             android:layout_below="@+id/lBin"
             android:layout_marginStart="@dimen/_15sdp"
             android:layout_marginEnd="@dimen/_15sdp"
-            app:backgroundTint="@null"
             android:background="@drawable/fill_button_selector"
             android:text="Submit"
             android:textColor="@drawable/fill_button_text_selector"
             android:textSize="@dimen/_12sdp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:backgroundTint="@null" />
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

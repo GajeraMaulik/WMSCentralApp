@@ -165,9 +165,9 @@ class PickOderItemActivity : AppCompatActivity() {
         val twoBtnView = dialog.findViewById<LinearLayout>(R.id.twoBtnView)
         val testoder = dialog.findViewById<TextView>(R.id.pickingItems)
 
-        title.text = "Notes"
-        title.textSize = 15F
         title.setTextColor(Color.parseColor("#863B7B"))
+        title.textSize = 15F 
+        title.text = "Notes"
 
         var commentValue = SharePref.getStringValue(this@PickOderItemActivity,"comment")
 

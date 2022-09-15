@@ -1,5 +1,6 @@
 package com.example.wmscentralapp.PickingItemScreens
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -73,11 +74,15 @@ class PickingDetailActivity : AppCompatActivity() {
         })
 
     }
+    @SuppressLint("ResourceAsColor")
     fun submitDialog() {
 
         val dialog = Dialog(this)
 
         dialog.setContentView(R.layout.item_dialog)
+
+      //  tvItemNo_pd.setBackgroundColor(R.color.back1)
+      //  tvBinNo_pd.setBackgroundColor(R.color.back1)
 
         val okbtn = dialog.findViewById<Button>(R.id.btnContinue)
         val cancelbtn = dialog.findViewById<Button>(R.id.btnNew)
@@ -105,8 +110,11 @@ class PickingDetailActivity : AppCompatActivity() {
         okbtn.setOnClickListener {
             Log.d("oderpick", "------------>ok")
             if (etPickId!!.text.isNotEmpty()) {
+
                 Toast.makeText(this, "Ok", Toast.LENGTH_SHORT).show()
                 dialog.dismiss()
+                tvItemNo_pd.setBackgroundColor(R.color.edittext)
+                tvBinNo_pd.setBackgroundColor(R.color.edittext)
             } else {
                 etPickId!!.error = "Empty Field"
                 Toast.makeText(this, "Input quantity Empty", Toast.LENGTH_SHORT).show()
@@ -114,8 +122,11 @@ class PickingDetailActivity : AppCompatActivity() {
         }
 
         cancelbtn.setOnClickListener {
+
             Log.d("oderpick", "------------>cancel ")
             dialog.dismiss()
+            tvItemNo_pd.setBackgroundColor(R.color.edittext)
+            tvBinNo_pd.setBackgroundColor(R.color.edittext)
         }
         dialog.show()
         dialog.setCanceledOnTouchOutside(false)

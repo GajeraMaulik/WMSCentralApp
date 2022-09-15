@@ -56,6 +56,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_10sdp"
             app:layout_constraintBottom_toTopOf="@+id/toolBar">
 
 <RelativeLayout
@@ -96,37 +97,37 @@
             android:textFontWeight="600"
             android:textSize="@dimen/_15sdp"/>
 
-        <RelativeLayout
-            android:id="@+id/catLabel_View"
-            android:layout_width="match_parent"
+    <RelativeLayout
+        android:id="@+id/catLabel_View"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/product_Price"
+        android:layout_marginTop="@dimen/_10sdp">
+
+        <TextView
+            android:id="@+id/catLabel"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_below="@id/product_Price">
+            android:layout_marginStart="@dimen/_10sdp"
+            android:fontFamily="@font/open_sans"
+            android:text="Category:"
+            android:textColor="@color/pickItem"
+            android:textFontWeight="600"
+            android:textSize="@dimen/_15sdp" />
 
-            <TextView
-                android:id="@+id/catLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Category:"
-                android:textColor="@color/pickItem"
-                android:fontFamily="@font/open_sans"
-                android:textFontWeight="600"
-                android:textSize="@dimen/_15sdp"
-                android:layout_marginStart="@dimen/_10sdp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_77sdp"
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_77sdp"
+            android:layout_toRightOf="@+id/catLabel"
+            android:fontFamily="@font/open_sans"
+            android:text="-"
+            android:textColor="@color/black"
+            android:textFontWeight="600"
+            android:textSize="@dimen/_15sdp" />
 
-                android:layout_toRightOf="@+id/catLabel"
-                android:fontFamily="@font/open_sans"
-                android:text="-"
-                android:textColor="@color/black"
-                android:textFontWeight="600"
-                android:textSize="@dimen/_15sdp" />
-
-        </RelativeLayout>
+    </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/active_View"
